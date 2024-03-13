@@ -7,6 +7,7 @@ use std::{
 
 use anyhow::{Context, Result};
 use chrono::Utc;
+use futures_util::{SinkExt, TryStreamExt};
 use mongodb::{
     bson::doc,
     Client as MongoClient,
@@ -15,14 +16,10 @@ use mongodb::{
     options::{IndexOptions, UpdateOptions},
     results::UpdateResult,
 };
+use tokio::sync::broadcast::Sender;
 use tokio::sync::RwLock;
-use tokio_stream::StreamExt;
-use warp::{
-    Filter,
-    filters::BoxedFilter,
-    http::Uri,
-    Reply,
-};
+use warp::{Filter, filters::BoxedFilter, http::Uri, Reply};
+use warp::ws::WebSocket;
 
 use crate::{
     config::Config,
@@ -49,6 +46,7 @@ pub async fn start(config: Arc<Config>) -> Result<()> {
 pub struct State {
     mongo: MongoClient,
     stats: RwLock<Option<CachedStatistics>>,
+    listings_channel: Sender<Arc<[PartyFinderListing]>>,
 }
 
 impl State {
@@ -57,9 +55,11 @@ impl State {
             .await
             .context("could not create mongodb client")?;
 
+        let (tx, _) = tokio::sync::broadcast::channel(16);
         let state = Arc::new(Self {
             mongo,
             stats: Default::default(),
+            listings_channel: tx,
         });
 
         state.collection()
@@ -132,6 +132,7 @@ fn router(state: Arc<State>) -> BoxedFilter<(impl Reply, )> {
         .or(listings(Arc::clone(&state)))
         .or(contribute(Arc::clone(&state)))
         .or(contribute_multiple(Arc::clone(&state)))
+        .or(receive(Arc::clone(&state)))
         .or(stats(Arc::clone(&state)))
         .or(stats_seven_days(Arc::clone(&state)))
         .or(assets())
@@ -408,7 +409,11 @@ fn contribute(state: Arc<State>) -> BoxedFilter<(impl Reply, )> {
             return Ok("invalid listing".to_string());
         }
 
-        let result = insert_listing(&*state, listing).await;
+        let result = insert_listing(&*state, &listing).await;
+
+        // publish listings to websockets
+        let _ = state.listings_channel.send(vec![listing].into()); // ignore is OK, as `send` only fails when there are no receivers (which may happen)
+
         Ok(format!("{:#?}", result))
     }
 
@@ -424,7 +429,7 @@ fn contribute_multiple(state: Arc<State>) -> BoxedFilter<(impl Reply, )> {
         let total = listings.len();
         let mut successful = 0;
 
-        for listing in listings {
+        for listing in &listings {
             if listing.seconds_remaining > 60 * 60 {
                 continue;
             }
@@ -437,6 +442,8 @@ fn contribute_multiple(state: Arc<State>) -> BoxedFilter<(impl Reply, )> {
             }
         }
 
+        let _ = state.listings_channel.send(listings.into()); // ignore is OK, as `send` only fails when there are no receivers (which may happen)
+
         Ok(format!("{}/{} updated", successful, total))
     }
 
@@ -448,7 +455,34 @@ fn contribute_multiple(state: Arc<State>) -> BoxedFilter<(impl Reply, )> {
     warp::post().and(route).boxed()
 }
 
-async fn insert_listing(state: &State, listing: PartyFinderListing) -> Result<UpdateResult> {
+fn receive(state: Arc<State>) -> BoxedFilter<(impl Reply,)> {
+    async fn logic(state: Arc<State>, mut websocket: WebSocket) {
+        let mut rx = state.listings_channel.subscribe();
+        while let Ok(v) = rx.recv().await {
+            let Ok(json) = serde_json::to_string(&*v) else {
+                eprintln!("failed to serialize listings!");
+                continue;
+            };
+
+            if websocket.send(warp::ws::Message::text(json)).await.is_err() {
+                break;
+            }
+        }
+
+        let _ = websocket.close().await;
+    }
+
+    let route = warp::path("receive")
+        .and(warp::ws())
+        .map(move |ws: warp::ws::Ws| {
+            let state = Arc::clone(&state);
+            ws.on_upgrade(move |websocket| logic(state, websocket))
+        });
+
+    warp::get().and(route).boxed()
+}
+
+async fn insert_listing(state: &State, listing: &PartyFinderListing) -> Result<UpdateResult> {
     if listing.created_world >= 1_000 || listing.home_world >= 1_000 || listing.current_world >= 1_000 {
         anyhow::bail!("invalid listing");
     }
