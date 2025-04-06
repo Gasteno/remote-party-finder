@@ -1,11 +1,9 @@
 use std::{cmp::Ordering, convert::Infallible, sync::Arc, time::Duration};
 
 use anyhow::{Context, Result};
-use chrono::Utc;
 use mongodb::{
-    bson::doc,
-    options::{IndexOptions, UpdateOptions},
-    results::UpdateResult,
+    options::IndexOptions
+    ,
     Client as MongoClient, Collection, IndexModel,
 };
 use tokio::sync::broadcast::Sender;
@@ -13,7 +11,7 @@ use tokio::sync::RwLock;
 use warp::{filters::BoxedFilter, http::Uri, Filter, Reply};
 
 use crate::api::api;
-use crate::mongo::get_current_listings;
+use crate::mongo::{get_current_listings, insert_listing};
 use crate::{
     config::Config, ffxiv::Language, listing::PartyFinderListing,
     listing_container::ListingContainer, stats::CachedStatistics,
@@ -338,7 +336,7 @@ fn contribute(state: Arc<State>) -> BoxedFilter<(impl Reply,)> {
             return Ok("invalid listing".to_string());
         }
 
-        let result = insert_listing(&*state, &listing).await;
+        let result = insert_listing(state.collection(), &listing).await;
 
         // publish listings to websockets
         let _ = state.listings_channel.send(vec![listing].into()); // ignore is OK, as `send` only fails when there are no receivers (which may happen)
@@ -366,7 +364,7 @@ fn contribute_multiple(state: Arc<State>) -> BoxedFilter<(impl Reply,)> {
                 continue;
             }
 
-            let result = insert_listing(&*state, listing).await;
+            let result = insert_listing(state.collection(), listing).await;
             if result.is_ok() {
                 successful += 1;
             } else {
@@ -385,40 +383,4 @@ fn contribute_multiple(state: Arc<State>) -> BoxedFilter<(impl Reply,)> {
         .and(warp::body::json())
         .and_then(move |listings: Vec<PartyFinderListing>| logic(Arc::clone(&state), listings));
     warp::post().and(route).boxed()
-}
-
-async fn insert_listing(state: &State, listing: &PartyFinderListing) -> Result<UpdateResult> {
-    if listing.created_world >= 1_000
-        || listing.home_world >= 1_000
-        || listing.current_world >= 1_000
-    {
-        anyhow::bail!("invalid listing");
-    }
-
-    let opts = UpdateOptions::builder().upsert(true).build();
-    let bson_value = mongodb::bson::to_bson(&listing).unwrap();
-    let now = Utc::now();
-    state
-        .collection()
-        .update_one(
-            doc! {
-                "listing.id": listing.id,
-                "listing.last_server_restart": listing.last_server_restart,
-                "listing.created_world": listing.created_world as u32,
-            },
-            doc! {
-                "$currentDate": {
-                    "updated_at": true,
-                },
-                "$set": {
-                    "listing": bson_value,
-                },
-                "$setOnInsert": {
-                    "created_at": now,
-                },
-            },
-            opts,
-        )
-        .await
-        .context("could not insert record")
 }
