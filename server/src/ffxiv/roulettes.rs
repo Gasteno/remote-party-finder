@@ -4,6 +4,7 @@ use super::LocalisedText;
 #[derive(Debug)]
 pub struct RouletteInfo {
     pub name: LocalisedText,
+    #[expect(unused)]
     pub pvp: bool,
 }
 

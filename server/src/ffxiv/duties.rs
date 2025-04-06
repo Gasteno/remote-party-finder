@@ -50,6 +50,7 @@ pub enum ContentKind {
 }
 
 impl ContentKind {
+    #[expect(unused)]
     fn from_u32(kind: u32) -> Self {
         match kind {
             1 => Self::DutyRoulette,
