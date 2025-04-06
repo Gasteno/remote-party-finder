@@ -22,6 +22,8 @@ mod ws;
 
 #[cfg(test)]
 mod test;
+mod api;
+mod mongo;
 
 #[tokio::main]
 async fn main() {
