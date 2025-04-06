@@ -27,6 +27,7 @@ tokio-stream = { version = "0.1", features = ["sync"] }
 toml = "0.7"
 warp = { version = "0.3", default-features = false, features = ["websocket"] }
 futures-util = "0.3.28"
+async-stream = "0.3.6"
 
 [dev-dependencies]
 lazy_static = "1"

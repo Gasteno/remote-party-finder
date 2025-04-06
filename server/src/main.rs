@@ -1,6 +1,5 @@
 #![feature(try_blocks, iter_intersperse)]
 #![feature(let_chains)]
-#![feature(async_closure)]
 
 use anyhow::Context;
 use std::borrow::Cow;

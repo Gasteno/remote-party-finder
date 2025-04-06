@@ -132,7 +132,7 @@ fn router(state: Arc<State>) -> BoxedFilter<(impl Reply, )> {
         .or(listings(Arc::clone(&state)))
         .or(contribute(Arc::clone(&state)))
         .or(contribute_multiple(Arc::clone(&state)))
-        .or(receive(Arc::clone(&state)))
+        .or(ws(Arc::clone(&state)))
         .or(stats(Arc::clone(&state)))
         .or(stats_seven_days(Arc::clone(&state)))
         .or(assets())
@@ -455,15 +455,14 @@ fn contribute_multiple(state: Arc<State>) -> BoxedFilter<(impl Reply, )> {
     warp::post().and(route).boxed()
 }
 
-fn receive(state: Arc<State>) -> BoxedFilter<(impl Reply,)> {
-    let route = warp::path("receive")
+fn ws(state: Arc<State>) -> BoxedFilter<(impl Reply,)> {
+    let route = warp::path("ws")
         .and(warp::ws())
         .map(move |ws: warp::ws::Ws| {
             let state = Arc::clone(&state);
             ws.on_upgrade(move |websocket| {
-                async {
-                    let mut client = WsApiClient::new(websocket, state);
-                    client.run().await;
+                async move {
+                    WsApiClient::run(state, websocket).await;
                 }
             })
         });
