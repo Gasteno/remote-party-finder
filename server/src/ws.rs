@@ -21,6 +21,9 @@ enum InboundApiMessage {
     Subscribe {
         channel: MessageChannel
     },
+    Unsubscribe {
+        channel: MessageChannel
+    }
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -28,6 +31,7 @@ enum InboundApiMessage {
 #[serde(rename_all = "snake_case")]
 enum OutboundApiMessage {
     Subscribed { channel: MessageChannel },
+    Unsubscribed { channel: MessageChannel },
     Listings { listings: Arc<[PartyFinderListing]> },
     Err { message: String },
 }
@@ -57,6 +61,18 @@ impl WsApiClient {
                 // send a message letting the client know they've been subscribed
                 self.outbound
                     .send(OutboundApiMessage::Subscribed { channel })
+                    .unwrap()
+            }
+            InboundApiMessage::Unsubscribe { channel } => {
+                match channel {
+                    MessageChannel::Listings => {
+                        self.listings = None; // drops the task.
+                    }
+                }
+
+                // send a message letting the client know they've been unsubscribed
+                self.outbound
+                    .send(OutboundApiMessage::Unsubscribed { channel })
                     .unwrap()
             }
         }
