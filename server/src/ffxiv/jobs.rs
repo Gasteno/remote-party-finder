@@ -1,5 +1,5 @@
+use ffxiv_types::jobs::{Class, ClassJob, Job, NonCombatJob};
 use std::collections::HashMap;
-use ffxiv_types::jobs::{ClassJob, Class, Job, NonCombatJob};
 
 lazy_static::lazy_static! {
     pub static ref JOBS: HashMap<u32, ClassJob> = maplit::hashmap! {

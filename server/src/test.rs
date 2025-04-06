@@ -1,4 +1,7 @@
-use crate::listing::{PartyFinderListing, DutyType, ObjectiveFlags, ConditionFlags, DutyFinderSettingsFlags, LootRuleFlags, SearchAreaFlags, DutyCategory, PartyFinderSlot, JobFlags};
+use crate::listing::{
+    ConditionFlags, DutyCategory, DutyFinderSettingsFlags, DutyType, JobFlags, LootRuleFlags,
+    ObjectiveFlags, PartyFinderListing, PartyFinderSlot, SearchAreaFlags,
+};
 use sestring::SeString;
 
 const LISTING: &str = r###"
@@ -74,10 +77,7 @@ lazy_static::lazy_static! {
 #[test]
 fn deserialise_listing() {
     let listing: PartyFinderListing = serde_json::from_str(LISTING).unwrap();
-    assert_eq!(
-        listing,
-        *EXPECTED,
-    )
+    assert_eq!(listing, *EXPECTED,)
 }
 
 #[test]

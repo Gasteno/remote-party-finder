@@ -2,7 +2,12 @@ use std::{cmp::Ordering, convert::Infallible, sync::Arc, time::Duration};
 
 use anyhow::{Context, Result};
 use chrono::Utc;
-use mongodb::{bson::doc, options::{IndexOptions, UpdateOptions}, results::UpdateResult, Client as MongoClient, Collection, IndexModel};
+use mongodb::{
+    bson::doc,
+    options::{IndexOptions, UpdateOptions},
+    results::UpdateResult,
+    Client as MongoClient, Collection, IndexModel,
+};
 use tokio::sync::broadcast::Sender;
 use tokio::sync::RwLock;
 use warp::{filters::BoxedFilter, http::Uri, Filter, Reply};
@@ -10,13 +15,9 @@ use warp::{filters::BoxedFilter, http::Uri, Filter, Reply};
 use crate::api::api;
 use crate::mongo::get_current_listings;
 use crate::{
-    config::Config,
-    ffxiv::Language,
-    listing::PartyFinderListing,
-    listing_container::ListingContainer,
-    stats::CachedStatistics,
-    template::listings::ListingsTemplate,
-    template::stats::StatsTemplate,
+    config::Config, ffxiv::Language, listing::PartyFinderListing,
+    listing_container::ListingContainer, stats::CachedStatistics,
+    template::listings::ListingsTemplate, template::stats::StatsTemplate,
 };
 
 mod stats;

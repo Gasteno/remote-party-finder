@@ -1,7 +1,7 @@
+use crate::listing::PartyFinderListing;
 use chrono::{DateTime, Duration, TimeDelta, Utc};
 use chrono_humanize::HumanTime;
 use serde::{Deserialize, Serialize};
-use crate::listing::PartyFinderListing;
 
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct ListingContainer {
@@ -26,7 +26,10 @@ pub struct QueriedListing {
 
 impl QueriedListing {
     pub fn human_time_left(&self) -> HumanTime {
-        HumanTime::from(TimeDelta::try_milliseconds((self.time_left * 1000f64) as i64).unwrap_or(TimeDelta::zero()))
+        HumanTime::from(
+            TimeDelta::try_milliseconds((self.time_left * 1000f64) as i64)
+                .unwrap_or(TimeDelta::zero()),
+        )
     }
 
     pub fn since_updated(&self) -> Duration {

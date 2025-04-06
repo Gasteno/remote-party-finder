@@ -69,8 +69,10 @@ pub async fn get_current_listings(
         .await?;
 
     let collect = cursor
-        .filter_map(async |res| res.ok()
-            .and_then(|doc| mongodb::bson::from_document(doc).ok()))
+        .filter_map(async |res| {
+            res.ok()
+                .and_then(|doc| mongodb::bson::from_document(doc).ok())
+        })
         .collect::<Vec<_>>()
         .await;
 

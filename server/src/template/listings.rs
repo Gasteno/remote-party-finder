@@ -1,9 +1,9 @@
-use askama::Template;
-use crate::listing_container::QueriedListing;
-use std::borrow::Borrow;
 use crate::ffxiv::Language;
-use crate::sestring_ext::SeStringExt;
 use crate::listing::PartyFinderCategory;
+use crate::listing_container::QueriedListing;
+use crate::sestring_ext::SeStringExt;
+use askama::Template;
+use std::borrow::Borrow;
 
 #[derive(Debug, Template)]
 #[template(path = "listings.html")]

@@ -1,29 +1,29 @@
 #![feature(try_blocks, iter_intersperse)]
 #![feature(let_chains)]
 
+use crate::config::Config;
 use anyhow::Context;
 use std::borrow::Cow;
 use std::path::Path;
 use std::sync::Arc;
 use tokio::fs::File;
 use tokio::io::AsyncReadExt;
-use crate::config::Config;
 
+mod base64_sestring;
 mod config;
+mod ffxiv;
 mod listing;
 mod listing_container;
-mod base64_sestring;
 mod sestring_ext;
 mod stats;
-mod web;
 mod template;
-mod ffxiv;
+mod web;
 mod ws;
 
-#[cfg(test)]
-mod test;
 mod api;
 mod mongo;
+#[cfg(test)]
+mod test;
 
 #[tokio::main]
 async fn main() {
@@ -50,9 +50,13 @@ async fn main() {
 }
 
 async fn get_config<P: AsRef<Path>>(path: P) -> anyhow::Result<Config> {
-    let mut f = File::open(path).await.context("could not open config file")?;
+    let mut f = File::open(path)
+        .await
+        .context("could not open config file")?;
     let mut toml = String::new();
-    f.read_to_string(&mut toml).await.context("could not read config file")?;
+    f.read_to_string(&mut toml)
+        .await
+        .context("could not read config file")?;
     let config = toml::from_str(&toml).context("could not parse config file")?;
 
     Ok(config)

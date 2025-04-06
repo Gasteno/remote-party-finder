@@ -18,12 +18,8 @@ pub struct WsApiClient {
 #[serde(tag = "type")]
 #[serde(rename_all = "snake_case")]
 enum InboundApiMessage {
-    Subscribe {
-        channel: MessageChannel
-    },
-    Unsubscribe {
-        channel: MessageChannel
-    }
+    Subscribe { channel: MessageChannel },
+    Unsubscribe { channel: MessageChannel },
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
