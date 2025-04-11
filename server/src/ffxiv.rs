@@ -1,6 +1,6 @@
 use std::borrow::Cow;
 use std::{cmp::Ordering, str::FromStr};
-
+use serde::Serialize;
 use crate::listing::{DutyCategory, DutyType};
 
 pub use self::{
@@ -82,7 +82,7 @@ impl Language {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone, Serialize)]
 pub struct LocalisedText {
     pub en: &'static str,
     pub ja: &'static str,
