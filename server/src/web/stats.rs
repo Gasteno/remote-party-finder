@@ -1,10 +1,10 @@
-use anyhow::Result;
-use chrono::{Duration, Utc};
-use mongodb::bson::{Document, doc};
-use mongodb::options::AggregateOptions;
-use tokio_stream::StreamExt;
 use crate::stats::{Aliases, Statistics};
 use crate::web::State;
+use anyhow::Result;
+use chrono::{TimeDelta, Utc};
+use futures_util::TryStreamExt;
+use mongodb::bson::{doc, Document};
+use mongodb::options::AggregateOptions;
 
 lazy_static::lazy_static! {
     static ref QUERY: [Document; 2] = [
@@ -149,45 +149,60 @@ pub async fn get_stats(state: &State) -> Result<Statistics> {
 }
 
 pub async fn get_stats_seven_days(state: &State) -> Result<Statistics> {
-    let last_week = Utc::now() - Duration::days(7);
+    let last_week = Utc::now() - TimeDelta::try_days(7).unwrap();
 
     let mut docs = QUERY.to_vec();
-    docs.insert(0, doc! {
-        "$match": {
-            "created_at": {
-                "$gte": last_week,
+    docs.insert(
+        0,
+        doc! {
+            "$match": {
+                "created_at": {
+                    "$gte": last_week,
+                },
             },
         },
-    });
+    );
 
     get_stats_internal(state, docs).await
 }
 
-async fn get_stats_internal(state: &State, docs: impl IntoIterator<Item = Document>) -> Result<Statistics> {
+async fn get_stats_internal(
+    state: &State,
+    docs: impl IntoIterator<Item = Document>,
+) -> Result<Statistics> {
     let mut cursor = state
         .collection()
-        .aggregate(docs, AggregateOptions::builder()
-            .allow_disk_use(true)
-            .build())
+        .aggregate(
+            docs,
+            AggregateOptions::builder().allow_disk_use(true).build(),
+        )
         .await?;
     let doc = cursor.try_next().await?;
     let doc = doc.ok_or_else(|| anyhow::anyhow!("missing document"))?;
     let mut stats: Statistics = mongodb::bson::from_document(doc)?;
 
-    let ids: Vec<u32> = stats.hosts.iter().flat_map(|host| host.content_ids.iter().map(|entry| entry.content_id)).collect();
+    let ids: Vec<u32> = stats
+        .hosts
+        .iter()
+        .flat_map(|host| host.content_ids.iter().map(|entry| entry.content_id))
+        .collect();
     let mut aliases_query: Vec<Document> = ALIASES_QUERY.iter().cloned().collect();
-    aliases_query.insert(0, doc! {
-        "$match": {
-            "listing.content_id_lower": {
-                "$in": ids,
+    aliases_query.insert(
+        0,
+        doc! {
+            "$match": {
+                "listing.content_id_lower": {
+                    "$in": ids,
+                }
             }
-        }
-    });
+        },
+    );
     let mut cursor = state
         .collection()
-        .aggregate(aliases_query, AggregateOptions::builder()
-            .allow_disk_use(true)
-            .build())
+        .aggregate(
+            aliases_query,
+            AggregateOptions::builder().allow_disk_use(true).build(),
+        )
         .await?;
     let doc = cursor.try_next().await?;
     let doc = doc.ok_or_else(|| anyhow::anyhow!("missing document"))?;

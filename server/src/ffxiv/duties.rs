@@ -1,14 +1,14 @@
-use std::collections::HashMap;
 use super::LocalisedText;
+use std::collections::HashMap;
 
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 pub struct DutyInfo {
     pub name: LocalisedText,
     pub high_end: bool,
     pub content_kind: ContentKind,
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Copy, Clone)]
 #[allow(unused)]
 #[repr(u32)]
 pub enum ContentKind {
@@ -50,6 +50,7 @@ pub enum ContentKind {
 }
 
 impl ContentKind {
+    #[expect(unused)]
     fn from_u32(kind: u32) -> Self {
         match kind {
             1 => Self::DutyRoulette,

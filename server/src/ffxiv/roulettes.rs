@@ -1,9 +1,10 @@
-use std::collections::HashMap;
 use super::LocalisedText;
+use std::collections::HashMap;
 
 #[derive(Debug)]
 pub struct RouletteInfo {
     pub name: LocalisedText,
+    #[expect(unused)]
     pub pvp: bool,
 }
 
