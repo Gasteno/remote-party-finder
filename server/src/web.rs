@@ -100,7 +100,7 @@ impl State {
                     seven_days,
                 });
 
-                tokio::time::sleep(Duration::from_secs(60 * 5)).await;
+                tokio::time::sleep(Duration::from_secs(60 * 60 * 12)).await;
             }
         });
 
