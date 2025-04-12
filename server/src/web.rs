@@ -289,8 +289,8 @@ async fn stats_logic(
                 stats.all_time
             },
             lang,
-        },
-        None => panic!(),
+        }.into_response(),
+        None => "Stats haven't been calculated yet. Please wait :(".into_response(),
     })
 }
 
