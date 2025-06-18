@@ -7,7 +7,8 @@ use serde::{Deserialize, Serialize};
 use serde_repr::{Deserialize_repr, Serialize_repr};
 use sestring::SeString;
 
-use crate::ffxiv::{Language, LocalisedText};
+use crate::ffxiv::jobs::JOBS_TO_FLAGS;
+use crate::ffxiv::{Language, LocalisedText, JOBS};
 
 #[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct PartyFinderListing {
@@ -70,6 +71,38 @@ impl PartyFinderListing {
         }
 
         slots
+    }
+
+    pub fn joinable_roles(&self) -> u32 {
+        let one_player_per_job = self
+            .search_area
+            .contains(SearchAreaFlags::ONE_PLAYER_PER_JOB);
+        let mut jobs = JobFlags::empty();
+        let mut jobs_taken = JobFlags::empty();
+        for (i, present_job) in self.jobs_present.iter().copied().enumerate() {
+            if i >= self.slots_available as usize {
+                break;
+            }
+
+            match JOBS.get(&(present_job as u32)) {
+                Some(cj) => {
+                    if let Some(job_taken) = JOBS_TO_FLAGS.get(cj.as_str()) {
+                        jobs_taken |= *job_taken
+                    }
+                }
+                None => {
+                    if let Some(slot) = self.slots.get(i) {
+                        jobs |= slot.accepting
+                    }
+                }
+            };
+        }
+
+        if (one_player_per_job) {
+            jobs &= !jobs_taken
+        }
+
+        jobs.bits()
     }
 
     pub fn created_world(&self) -> Option<World> {
