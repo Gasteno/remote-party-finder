@@ -17,7 +17,8 @@
         let saved = localStorage.getItem('state');
         if (saved !== null) {
             try {
-                saved = JSON.parse(saved);
+                saved = JSON.parse(saved, (key, value) => key === 'roles' ?
+                    BigInt(value) : value);
                 if (!Array.isArray(saved.allowed)) {
                     saved = {};
                     stateWasNull = true;
@@ -44,7 +45,8 @@
                 copy[key] = state[key];
             }
 
-            localStorage.setItem('state', JSON.stringify(copy));
+            localStorage.setItem('state', JSON.stringify(copy, (_, value) =>
+                typeof value === 'bigint' ? value.toString() : value));
         });
     }
 
@@ -62,7 +64,22 @@
         let dataCentre = document.getElementById('data-centre-filter');
         dataCentre.value = state.centre;
 
-        state.roles = 0n;
+        if (stateWasNull || state.roles <= 0n) {
+            state.roles = 0n;
+        } else {
+            let roleFilterInputs = document.getElementById('role-filter')
+                .getElementsByTagName('input');
+            let newRolesState = 0n;
+            for (let input of roleFilterInputs) {
+                let value = BigInt(input.value);
+                if (state.roles & value) {
+                    input.checked = true;
+                    newRolesState |= value;
+                }
+            }
+            // In case any unnecessary bits were set
+            state.roles = newRolesState;
+        }
 
         let language = document.getElementById('language');
         if (state.lang === null) {
