@@ -86,7 +86,8 @@ xivpf - listings
           data-id="{{ listing.id }}"
           data-centre="{{ listing.data_centre_name().unwrap_or_default() }}"
           data-pf-category="{{ listing.html_pf_category() }}"
-          data-joinable-roles="{{ listing.joinable_roles() }}">
+          data-joinable-roles="{{ listing.joinable_roles() }}"
+          data-num-parties="{{ listing.num_parties }}">
 
             <div class="left">
                 {%- let duty_class %}

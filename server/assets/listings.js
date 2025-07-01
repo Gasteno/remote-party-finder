@@ -118,6 +118,10 @@
         }
 
         function roleFilter(item) {
+            // Do not filter alliance raid / pvp because the jobs present are not accurate
+            if (Number(item.elm.dataset.numParties) !== 1) {
+                return true;
+            }
             return state.roles === 0n || state.roles & BigInt(item.elm.dataset.joinableRoles);
         }
 
