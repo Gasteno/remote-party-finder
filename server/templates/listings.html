@@ -56,7 +56,7 @@ xivpf - listings
                     <div class="roles" id="role-filter">
                         {%- for (role, jobs) in JobFlags::get_all_jobs() %}
                             <small>
-                                {{ role }}
+                                {{ role.text(lang) }}
                             </small>
                             <div>
                                 {%- for job in jobs %}

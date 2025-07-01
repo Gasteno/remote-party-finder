@@ -568,10 +568,15 @@ impl JobFlags {
         classes.join(" ")
     }
 
-    pub fn get_all_jobs() -> Vec<(&'static str, Vec<JobFlags>)> {
+    pub fn get_all_jobs() -> Vec<(LocalisedText, Vec<JobFlags>)> {
         vec![
             (
-                "Tanks",
+                LocalisedText {
+                    en: "Tank",
+                    ja: "タンク",
+                    de: "Verteidiger",
+                    fr: "Tank",
+                },
                 vec![
                     Self::PALADIN,
                     Self::WARRIOR,
@@ -580,7 +585,12 @@ impl JobFlags {
                 ],
             ),
             (
-                "Healers",
+                LocalisedText {
+                    en: "Healer",
+                    ja: "ヒーラー",
+                    de: "Heiler",
+                    fr: "Soigneur",
+                },
                 vec![
                     Self::WHITE_MAGE,
                     Self::SCHOLAR,
@@ -589,7 +599,12 @@ impl JobFlags {
                 ],
             ),
             (
-                "Melees",
+                LocalisedText {
+                    en: "Melee",
+                    ja: "近接物理DPS",
+                    de: "Nahkampf-Angreifer",
+                    fr: "DPS de mêlée",
+                },
                 vec![
                     Self::MONK,
                     Self::DRAGOON,
@@ -600,11 +615,21 @@ impl JobFlags {
                 ],
             ),
             (
-                "Phys Ranged",
+                LocalisedText {
+                    en: "Physical Ranged",
+                    ja: "遠隔物理DPS",
+                    de: "Physischer Fernkampf-Angreifer",
+                    fr: "DPS physiques à distance",
+                },
                 vec![Self::BARD, Self::MACHINIST, Self::DANCER],
             ),
             (
-                "Magic Ranged",
+                LocalisedText {
+                    en: "Magical Ranged",
+                    ja: "遠隔魔法DPS",
+                    de: "Magischer Fernkampf-Angreifer",
+                    fr: "DPS magiques à distance",
+                },
                 vec![
                     Self::BLACK_MAGE,
                     Self::SUMMONER,
