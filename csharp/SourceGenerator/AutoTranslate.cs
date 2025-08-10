@@ -38,7 +38,7 @@ internal static class AutoTranslate {
                 column,
                 noun
             )
-            .Separated(Char(','))
+            .Separated(Char(',').Then(Whitespace.Optional()))
             .Labelled("selectorItems");
         var selector = selectorItems
             .Between(Char('['), Char(']'))
