@@ -1,14 +1,14 @@
-use std::collections::HashMap;
 use super::LocalisedText;
+use std::collections::HashMap;
 
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 pub struct DutyInfo {
     pub name: LocalisedText,
     pub high_end: bool,
     pub content_kind: ContentKind,
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Copy, Clone)]
 #[allow(unused)]
 #[repr(u32)]
 pub enum ContentKind {
@@ -24,7 +24,7 @@ pub enum ContentKind {
     Levequests = 10,
     GrandCompany = 11,
     Companions = 12,
-    TribalQuests = 13,
+    SocietyQuests = 13,
     OverallCompletion = 14,
     PlayerCommendation = 15,
     DisciplesoftheLand = 16,
@@ -35,17 +35,22 @@ pub enum ContentKind {
     WondrousTails = 24,
     CustomDeliveries = 25,
     Eureka = 26,
+    TheMaskedCarnivale = 27,
     UltimateRaids = 28,
+    SavetheQueen = 29,
     VCDungeonFinder = 30,
     OceanFishing = 31,
     TripleTriad = 32,
     TheHunt = 33,
     Fishing = 34,
     GATE = 35,
+    IslandSanctuary = 36,
+    ChaoticAllianceRaid = 37,
     Other(u32),
 }
 
 impl ContentKind {
+    #[expect(unused)]
     fn from_u32(kind: u32) -> Self {
         match kind {
             1 => Self::DutyRoulette,
@@ -60,7 +65,7 @@ impl ContentKind {
             10 => Self::Levequests,
             11 => Self::GrandCompany,
             12 => Self::Companions,
-            13 => Self::TribalQuests,
+            13 => Self::SocietyQuests,
             14 => Self::OverallCompletion,
             15 => Self::PlayerCommendation,
             16 => Self::DisciplesoftheLand,
@@ -71,13 +76,17 @@ impl ContentKind {
             24 => Self::WondrousTails,
             25 => Self::CustomDeliveries,
             26 => Self::Eureka,
+            27 => Self::TheMaskedCarnivale,
             28 => Self::UltimateRaids,
+            29 => Self::SavetheQueen,
             30 => Self::VCDungeonFinder,
             31 => Self::OceanFishing,
             32 => Self::TripleTriad,
             33 => Self::TheHunt,
             34 => Self::Fishing,
             35 => Self::GATE,
+            36 => Self::IslandSanctuary,
+            37 => Self::ChaoticAllianceRaid,
             x => Self::Other(x),
         }
     }
@@ -96,7 +105,7 @@ impl ContentKind {
             Self::Levequests => 10,
             Self::GrandCompany => 11,
             Self::Companions => 12,
-            Self::TribalQuests => 13,
+            Self::SocietyQuests => 13,
             Self::OverallCompletion => 14,
             Self::PlayerCommendation => 15,
             Self::DisciplesoftheLand => 16,
@@ -107,13 +116,17 @@ impl ContentKind {
             Self::WondrousTails => 24,
             Self::CustomDeliveries => 25,
             Self::Eureka => 26,
+            Self::TheMaskedCarnivale => 27,
             Self::UltimateRaids => 28,
+            Self::SavetheQueen => 29,
             Self::VCDungeonFinder => 30,
             Self::OceanFishing => 31,
             Self::TripleTriad => 32,
             Self::TheHunt => 33,
             Self::Fishing => 34,
             Self::GATE => 35,
+            Self::IslandSanctuary => 36,
+            Self::ChaoticAllianceRaid => 37,
             Self::Other(x) => x,
         }
     }
@@ -4119,7 +4132,7 @@ lazy_static::lazy_static! {
                 fr: "Début du spectacle",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         611 => DutyInfo {
             name: LocalisedText {
@@ -4139,7 +4152,7 @@ lazy_static::lazy_static! {
                 fr: "Puddings à la mode",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         613 => DutyInfo {
             name: LocalisedText {
@@ -4149,7 +4162,7 @@ lazy_static::lazy_static! {
                 fr: "Zipacna, le premier obstacle",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         614 => DutyInfo {
             name: LocalisedText {
@@ -4159,7 +4172,7 @@ lazy_static::lazy_static! {
                 fr: "Kreios, le destructeur d'acier",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         615 => DutyInfo {
             name: LocalisedText {
@@ -4169,7 +4182,7 @@ lazy_static::lazy_static! {
                 fr: "La fratrie des gilkhélones",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         616 => DutyInfo {
             name: LocalisedText {
@@ -4179,7 +4192,7 @@ lazy_static::lazy_static! {
                 fr: "Vengeance aveugle",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         617 => DutyInfo {
             name: LocalisedText {
@@ -4189,7 +4202,7 @@ lazy_static::lazy_static! {
                 fr: "Pure attaque cardiaque",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         618 => DutyInfo {
             name: LocalisedText {
@@ -4199,7 +4212,7 @@ lazy_static::lazy_static! {
                 fr: "Crocs bleus et crocs rouges",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         619 => DutyInfo {
             name: LocalisedText {
@@ -4209,7 +4222,7 @@ lazy_static::lazy_static! {
                 fr: "Guimauve, le goût de l'arc-en-ciel",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         620 => DutyInfo {
             name: LocalisedText {
@@ -4219,7 +4232,7 @@ lazy_static::lazy_static! {
                 fr: "Crom Dubh, roi des idoles",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         621 => DutyInfo {
             name: LocalisedText {
@@ -4229,7 +4242,7 @@ lazy_static::lazy_static! {
                 fr: "Les courtes mèches",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         622 => DutyInfo {
             name: LocalisedText {
@@ -4239,7 +4252,7 @@ lazy_static::lazy_static! {
                 fr: "Hydnora, la plante parasite",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         623 => DutyInfo {
             name: LocalisedText {
@@ -4249,7 +4262,7 @@ lazy_static::lazy_static! {
                 fr: "La mystérieuse Carmilla",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         624 => DutyInfo {
             name: LocalisedText {
@@ -4259,7 +4272,7 @@ lazy_static::lazy_static! {
                 fr: "La mort n'a pas d'ami",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         625 => DutyInfo {
             name: LocalisedText {
@@ -4269,7 +4282,7 @@ lazy_static::lazy_static! {
                 fr: "La sphère bestiale, une menace allagoise",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         626 => DutyInfo {
             name: LocalisedText {
@@ -4279,7 +4292,7 @@ lazy_static::lazy_static! {
                 fr: "Tikbalang, bras tout-puissant",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         627 => DutyInfo {
             name: LocalisedText {
@@ -4289,7 +4302,7 @@ lazy_static::lazy_static! {
                 fr: "Kreios plie, mais ne rompt pas",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         628 => DutyInfo {
             name: LocalisedText {
@@ -4299,7 +4312,7 @@ lazy_static::lazy_static! {
                 fr: "Rencontre explosive",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         629 => DutyInfo {
             name: LocalisedText {
@@ -4309,7 +4322,7 @@ lazy_static::lazy_static! {
                 fr: "Miroir, mon beau miroir",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         630 => DutyInfo {
             name: LocalisedText {
@@ -4319,7 +4332,7 @@ lazy_static::lazy_static! {
                 fr: "Duo de choc: Orthros et maître Typhon",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         631 => DutyInfo {
             name: LocalisedText {
@@ -4329,7 +4342,7 @@ lazy_static::lazy_static! {
                 fr: "La chimèrique colère d'Apademak",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         632 => DutyInfo {
             name: LocalisedText {
@@ -4339,7 +4352,7 @@ lazy_static::lazy_static! {
                 fr: "L'histoire détonante de Papi bombo",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         633 => DutyInfo {
             name: LocalisedText {
@@ -4349,7 +4362,7 @@ lazy_static::lazy_static! {
                 fr: "Kronprinz béhémoth, le prince héritier",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         634 => DutyInfo {
             name: LocalisedText {
@@ -4359,7 +4372,7 @@ lazy_static::lazy_static! {
                 fr: "Epilogi, l'étrange marionnettiste",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         635 => DutyInfo {
             name: LocalisedText {
@@ -4369,7 +4382,7 @@ lazy_static::lazy_static! {
                 fr: "L'abominable Azulmagia",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         636 => DutyInfo {
             name: LocalisedText {
@@ -4819,7 +4832,7 @@ lazy_static::lazy_static! {
                 fr: "Papa Humbaba, le paternel aux gros bras",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         696 => DutyInfo {
             name: LocalisedText {
@@ -4829,7 +4842,7 @@ lazy_static::lazy_static! {
                 fr: "Fungaaah! Et boum!",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         697 => DutyInfo {
             name: LocalisedText {
@@ -4839,7 +4852,7 @@ lazy_static::lazy_static! {
                 fr: "Durinn, marionnettiste d'outre-tombe",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         698 => DutyInfo {
             name: LocalisedText {
@@ -4849,7 +4862,7 @@ lazy_static::lazy_static! {
                 fr: "La mélodie du feu et de l'eau",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         699 => DutyInfo {
             name: LocalisedText {
@@ -4859,7 +4872,7 @@ lazy_static::lazy_static! {
                 fr: "Siegfried, le plus grand bretteur du monde",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         700 => DutyInfo {
             name: LocalisedText {
@@ -5209,7 +5222,7 @@ lazy_static::lazy_static! {
                 fr: "Front sud de Bozja",
             },
             high_end: false,
-            content_kind: ContentKind::Other(29),
+            content_kind: ContentKind::SavetheQueen,
         },
         736 => DutyInfo {
             name: LocalisedText {
@@ -5389,7 +5402,7 @@ lazy_static::lazy_static! {
                 fr: "Gogo le mime",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         755 => DutyInfo {
             name: LocalisedText {
@@ -5439,7 +5452,7 @@ lazy_static::lazy_static! {
                 fr: "Delubrum Reginae",
             },
             high_end: false,
-            content_kind: ContentKind::Other(29),
+            content_kind: ContentKind::SavetheQueen,
         },
         761 => DutyInfo {
             name: LocalisedText {
@@ -5449,7 +5462,7 @@ lazy_static::lazy_static! {
                 fr: "Delubrum Reginae (sadique)",
             },
             high_end: false,
-            content_kind: ContentKind::Other(29),
+            content_kind: ContentKind::SavetheQueen,
         },
         762 => DutyInfo {
             name: LocalisedText {
@@ -5609,7 +5622,7 @@ lazy_static::lazy_static! {
                 fr: "Hauts plateaux de Zadnor",
             },
             high_end: false,
-            content_kind: ContentKind::Other(29),
+            content_kind: ContentKind::SavetheQueen,
         },
         779 => DutyInfo {
             name: LocalisedText {
@@ -6148,7 +6161,7 @@ lazy_static::lazy_static! {
                 de: "Gok Tajaal - Valigarmanda",
                 fr: "Worqor Lar Dor (extrême)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Trials,
         },
         834 => DutyInfo {
@@ -7179,7 +7192,7 @@ lazy_static::lazy_static! {
                 fr: "Goldor, le mage doré",
             },
             high_end: false,
-            content_kind: ContentKind::Other(27),
+            content_kind: ContentKind::TheMaskedCarnivale,
         },
         949 => DutyInfo {
             name: LocalisedText {
@@ -7538,7 +7551,7 @@ lazy_static::lazy_static! {
                 de: "Arkadion - Halbschwergewicht R1 (episch)",
                 fr: "Poids mi-lourds CCA - match 1 (sadique)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Raids,
         },
         987 => DutyInfo {
@@ -7558,7 +7571,7 @@ lazy_static::lazy_static! {
                 de: "Arkadion - Halbschwergewicht R2 (episch)",
                 fr: "Poids mi-lourds CCA - match 2 (sadique)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Raids,
         },
         989 => DutyInfo {
@@ -7578,7 +7591,7 @@ lazy_static::lazy_static! {
                 de: "Arkadion - Halbschwergewicht R3 (episch)",
                 fr: "Poids mi-lourds CCA - match 3 (sadique)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Raids,
         },
         991 => DutyInfo {
@@ -7598,7 +7611,7 @@ lazy_static::lazy_static! {
                 de: "Arkadion - Halbschwergewicht R4 (episch)",
                 fr: "Poids mi-lourds CCA - match 4 (sadique)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Raids,
         },
         993 => DutyInfo {
@@ -7638,7 +7651,7 @@ lazy_static::lazy_static! {
                 de: "Gok Tajaal - Zoraal Ja",
                 fr: "Le Pinacle de l'Éternité (extrême)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Trials,
         },
         997 => DutyInfo {
@@ -7710,6 +7723,226 @@ lazy_static::lazy_static! {
             },
             high_end: false,
             content_kind: ContentKind::QuestBattles,
+        },
+        1006 => DutyInfo {
+            name: LocalisedText {
+                en: "Futures Rewritten (Ultimate)",
+                ja: "絶もうひとつの未来",
+                de: "Eine zweite Zukunft (fatal)",
+                fr: "Avenirs réécrits (fatal)",
+            },
+            high_end: true,
+            content_kind: ContentKind::UltimateRaids,
+        },
+        1008 => DutyInfo {
+            name: LocalisedText {
+                en: "Yuweyawata Field Station",
+                ja: "廃地討究 ユウェヤーワータ",
+                de: "Forschungsstation Yuweyawata",
+                fr: "Le centre de recherche de Yuweyawata",
+            },
+            high_end: false,
+            content_kind: ContentKind::Dungeons,
+        },
+        1009 => DutyInfo {
+            name: LocalisedText {
+                en: "The Warmth of Family",
+                ja: "王の家族",
+                de: "Ein Land, eine Familie",
+                fr: "La famille de l'Aurarque",
+            },
+            high_end: false,
+            content_kind: ContentKind::QuestBattles,
+        },
+        1010 => DutyInfo {
+            name: LocalisedText {
+                en: "The Cloud of Darkness (Chaotic)",
+                ja: "滅暗闇の雲激闘戦",
+                de: "Die Wolke der Dunkelheit (chaotisch)",
+                fr: "La Tour de Ténèbres (chaotique)",
+            },
+            high_end: true,
+            content_kind: ContentKind::ChaoticAllianceRaid,
+        },
+        1012 => DutyInfo {
+            name: LocalisedText {
+                en: "React to Attack Markers",
+                ja: "マーカーが出る攻撃に対処しよう！",
+                de: "Achte auf Attackenmarkierungen!",
+                fr: "Réagir à des marquages",
+            },
+            high_end: false,
+            content_kind: ContentKind::Other(20),
+        },
+        1013 => DutyInfo {
+            name: LocalisedText {
+                en: "React to Floor Markers",
+                ja: "地面に予兆が出る攻撃に対処しよう！",
+                de: "Achte auf Geländemarkierungen!",
+                fr: "Réagir à des indications au sol",
+            },
+            high_end: false,
+            content_kind: ContentKind::Other(20),
+        },
+        1014 => DutyInfo {
+            name: LocalisedText {
+                en: "React to Advanced Visual Indicators",
+                ja: "さまざまな攻撃に対処しよう！",
+                de: "Stelle dich allerlei Angriffsmanövern!",
+                fr: "Réagir à des mécaniques variées",
+            },
+            high_end: false,
+            content_kind: ContentKind::Other(20),
+        },
+        1015 => DutyInfo {
+            name: LocalisedText {
+                en: "Jeuno: The First Walk",
+                ja: "ジュノ：ザ・ファーストウォーク",
+                de: "Jeuno: Die erste Etappe",
+                fr: "Jeuno - La première perambulation",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1016 => DutyInfo {
+            name: LocalisedText {
+                en: "Bar the Passage",
+                ja: "決戦、ゾーゴー永結橋",
+                de: "Kampf an Zorgor der Weiten",
+                fr: "Pour s'affranchir de la tyrannie, tout s'appelle vertu",
+            },
+            high_end: false,
+            content_kind: ContentKind::QuestBattles,
+        },
+        1017 => DutyInfo {
+            name: LocalisedText {
+                en: "The Minstrel's Ballad: Sphene's Burden",
+                ja: "極エターナルクイーン討滅戦",
+                de: "Gok Tajaal - Ewige Königin",
+                fr: "Interphos (extrême)",
+            },
+            high_end: false,
+            content_kind: ContentKind::Trials,
+        },
+        1019 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Cruiserweight M1",
+                ja: "至天の座アルカディア：クルーザー級1",
+                de: "Arkadion - Schwergewicht R1",
+                fr: "Poids lourds-légers CCA - match 1",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1020 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Cruiserweight M1 (Savage)",
+                ja: "至天の座アルカディア零式：クルーザー級1",
+                de: "Arkadion - Schwergewicht R1 (episch)",
+                fr: "Poids lourds-légers CCA - match 1 (sadique)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Raids,
+        },
+        1021 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Cruiserweight M2",
+                ja: "至天の座アルカディア：クルーザー級2",
+                de: "Arkadion - Schwergewicht R2",
+                fr: "Poids lourds-légers CCA - match 2",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1022 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Cruiserweight M2 (Savage)",
+                ja: "至天の座アルカディア零式：クルーザー級2",
+                de: "Arkadion - Schwergewicht R2 (episch)",
+                fr: "Poids lourds-légers CCA - match 2 (sadique)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Raids,
+        },
+        1023 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Cruiserweight M3",
+                ja: "至天の座アルカディア：クルーザー級3",
+                de: "Arkadion - Schwergewicht R3",
+                fr: "Poids lourds-légers CCA - match 3",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1024 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Cruiserweight M3 (Savage)",
+                ja: "至天の座アルカディア零式：クルーザー級3",
+                de: "Arkadion - Schwergewicht R3 (episch)",
+                fr: "Poids lourds-légers CCA - match 3 (sadique)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Raids,
+        },
+        1025 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Cruiserweight M4",
+                ja: "至天の座アルカディア：クルーザー級4",
+                de: "Arkadion - Schwergewicht R4",
+                fr: "Poids lourds-légers CCA - match 4",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1026 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Cruiserweight M4 (Savage)",
+                ja: "至天の座アルカディア零式：クルーザー級4",
+                de: "Arkadion - Schwergewicht R4 (episch)",
+                fr: "Poids lourds-légers CCA - match 4 (sadique)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Raids,
+        },
+        1027 => DutyInfo {
+            name: LocalisedText {
+                en: "The Underkeep",
+                ja: "王城旧跡 アンダーキープ",
+                de: "Unterfried-Ruinen",
+                fr: "La Gardienne de l'Immémorial",
+            },
+            high_end: false,
+            content_kind: ContentKind::Dungeons,
+        },
+        1029 => DutyInfo {
+            name: LocalisedText {
+                en: "Hells' Kier (Unreal)",
+                ja: "幻朱雀征魂戦",
+                de: "Traumprüfung - Suzaku",
+                fr: "Le Nid des Lamentations (irréel)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Trials,
+        },
+        1030 => DutyInfo {
+            name: LocalisedText {
+                en: "Recollection",
+                ja: "ゼレニア討滅戦",
+                de: "Zel Tajaal - Zelenia",
+                fr: "Le Sanctuaire du Serment",
+            },
+            high_end: false,
+            content_kind: ContentKind::Trials,
+        },
+        1031 => DutyInfo {
+            name: LocalisedText {
+                en: "Recollection (Extreme)",
+                ja: "極ゼレニア討滅戦",
+                de: "Gok Tajaal - Zelenia",
+                fr: "Le Sanctuaire du Serment (extrême)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Trials,
         },
     };
 }

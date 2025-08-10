@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use super::LocalisedText;
+use std::collections::HashMap;
 
 lazy_static::lazy_static! {
     pub static ref TERRITORY_NAMES: HashMap<u32, LocalisedText> = maplit::hashmap! {
@@ -176,18 +176,6 @@ lazy_static::lazy_static! {
             ja: "シリウス大灯台",
             de: "Pharos Sirius",
             fr: "Phare de Sirius",
-        },
-        162 => LocalisedText {
-            en: "Halatali",
-            ja: "ハラタリ修練所",
-            de: "Halatali",
-            fr: "Halatali",
-        },
-        163 => LocalisedText {
-            en: "The Sunken Temple of Qarn",
-            ja: "カルン埋没寺院",
-            de: "Versunkener Tempel von Qarn",
-            fr: "Temple enseveli de Qarn",
         },
         167 => LocalisedText {
             en: "Amdapor Keep",
@@ -2643,12 +2631,6 @@ lazy_static::lazy_static! {
             de: "Azim-Steppe",
             fr: "Steppe d'Azim",
         },
-        623 => LocalisedText {
-            en: "Bardam's Mettle",
-            ja: "バルダム覇道",
-            de: "Bardams Probe",
-            fr: "Force de Bardam",
-        },
         624 => LocalisedText {
             en: "The Diadem",
             ja: "ディアデム諸島",
@@ -2660,12 +2642,6 @@ lazy_static::lazy_static! {
             ja: "ディアデム諸島",
             de: "Das Diadem",
             fr: "Le Diadème",
-        },
-        626 => LocalisedText {
-            en: "The Sirensong Sea",
-            ja: "セイレーン海",
-            de: "Sirenen-See",
-            fr: "Mer du Chant des sirènes",
         },
         627 => LocalisedText {
             en: "Dun Scaith",
@@ -2816,18 +2792,6 @@ lazy_static::lazy_static! {
             ja: "ラールガーズリーチ",
             de: "Rhalgrs Wacht",
             fr: "L'Étendue de Rhalgr",
-        },
-        660 => LocalisedText {
-            en: "Doma Castle",
-            ja: "ドマ城",
-            de: "Burg Doma",
-            fr: "Château de Doma",
-        },
-        661 => LocalisedText {
-            en: "Castrum Abania",
-            ja: "カストルム・アバニア",
-            de: "Castrum Abania",
-            fr: "Castrum Abania",
         },
         662 => LocalisedText {
             en: "Kugane Castle",
@@ -2990,12 +2954,6 @@ lazy_static::lazy_static! {
             ja: "アジムステップ",
             de: "Azim-Steppe",
             fr: "Steppe d'Azim",
-        },
-        689 => LocalisedText {
-            en: "Ala Mhigo",
-            ja: "アラミゴ",
-            de: "Ala Mhigo",
-            fr: "Ala Mhigo",
         },
         690 => LocalisedText {
             en: "The Interdimensional Rift",
@@ -3242,12 +3200,6 @@ lazy_static::lazy_static! {
             ja: "結晶化空間",
             de: "Raum der Transparenz",
             fr: "Transparence",
-        },
-        731 => LocalisedText {
-            en: "The Drowned City of Skalla",
-            ja: "スカラ",
-            de: "Die versunkene Stadt Skalla",
-            fr: "Cité engloutie de Skalla",
         },
         732 => LocalisedText {
             en: "Eureka Anemos",
@@ -3561,12 +3513,6 @@ lazy_static::lazy_static! {
             de: "Sankt Mocianne-Arboretum",
             fr: "Arboretum Sainte-Mocianne",
         },
-        789 => LocalisedText {
-            en: "The Burn",
-            ja: "ザ・バーン",
-            de: "Kargland",
-            fr: "L'Escarre",
-        },
         790 => LocalisedText {
             en: "Ul'dah - Steps of Nald",
             ja: "ウルダハ：ナル回廊",
@@ -3584,12 +3530,6 @@ lazy_static::lazy_static! {
             ja: "ベラフディア遺跡風特設アスレチック",
             de: "Belah'dias Fall",
             fr: "Chutes de Belah'dia",
-        },
-        793 => LocalisedText {
-            en: "The Ghimlyt Dark",
-            ja: "ギムリトダーク",
-            de: "Ghimlyt-Finsternis",
-            fr: "Les Ténèbres de Ghimlyt",
         },
         794 => LocalisedText {
             en: "The Shifting Altars of Uznair",
@@ -5505,6 +5445,24 @@ lazy_static::lazy_static! {
             de: "Ätherborn",
             fr: "Île de Haam",
         },
+        1127 => LocalisedText {
+            en: "The Fold",
+            ja: "ザ・フォールド",
+            de: "Wolfspferch (The Fold)",
+            fr: "La Louverie (The Fold)",
+        },
+        1128 => LocalisedText {
+            en: "The Fold",
+            ja: "ザ・フォールド",
+            de: "Wolfspferch (The Fold)",
+            fr: "La Louverie (The Fold)",
+        },
+        1129 => LocalisedText {
+            en: "The Fold",
+            ja: "ザ・フォールド",
+            de: "Wolfspferch (The Fold)",
+            fr: "La Louverie (The Fold)",
+        },
         1136 => LocalisedText {
             en: "The Gilded Araya",
             ja: "アラヤの宝塔",
@@ -6098,6 +6056,198 @@ lazy_static::lazy_static! {
             ja: "南ザナラーン",
             de: "Südliches Thanalan",
             fr: "Thanalan méridional",
+        },
+        1238 => LocalisedText {
+            en: "A Future Rewritten",
+            ja: "もうひとつの未来",
+            de: "Eine zweite Zukunft",
+            fr: "Avenirs réécrits",
+        },
+        1241 => LocalisedText {
+            en: "Sphere of Naught",
+            ja: "暗闇の領域",
+            de: "Sphäre der Leere",
+            fr: "Sphère de l'absence",
+        },
+        1242 => LocalisedText {
+            en: "Yuweyawata",
+            ja: "ユウェヤーワータ",
+            de: "Yuweyawata",
+            fr: "Yuweyawata",
+        },
+        1243 => LocalisedText {
+            en: "Interphos",
+            ja: "次元黄道",
+            de: "Interdimensionale Ekliptik",
+            fr: "Écliptique dimensionnelle",
+        },
+        1244 => LocalisedText {
+            en: "Shaaloani",
+            ja: "シャーローニ荒野",
+            de: "Shaaloani",
+            fr: "Shaaloani",
+        },
+        1245 => LocalisedText {
+            en: "Halatali",
+            ja: "ハラタリ修練所",
+            de: "Halatali",
+            fr: "Halatali",
+        },
+        1246 => LocalisedText {
+            en: "Zorgor the Boundless",
+            ja: "ゾーゴー永結橋",
+            de: "Zorgor die Weite",
+            fr: "Traverse de Zorgor",
+        },
+        1247 => LocalisedText {
+            en: "Starlight Stalls",
+            ja: "星芒マーケット",
+            de: "Sternenlicht-Stände",
+            fr: "Marché des étoiles",
+        },
+        1248 => LocalisedText {
+            en: "Jeuno: The First Walk",
+            ja: "ジュノ：ザ・ファーストウォーク",
+            de: "Jeuno: Die erste Etappe",
+            fr: "Jeuno - La première perambulation",
+        },
+        1253 => LocalisedText {
+            en: "Starlight Stalls",
+            ja: "星芒マーケット",
+            de: "Sternenlicht-Stände",
+            fr: "Marché des étoiles",
+        },
+        1254 => LocalisedText {
+            en: "Yuweyawata",
+            ja: "ユウェヤーワータ",
+            de: "Yuweyawata",
+            fr: "Yuweyawata",
+        },
+        1255 => LocalisedText {
+            en: "Hall of the Unbound",
+            ja: "仮設オーディション会場",
+            de: "Audienzsaal",
+            fr: "Salle d'audition des Affranchis",
+        },
+        1256 => LocalisedText {
+            en: "Groovy Ring",
+            ja: "リング・オブ・ダンス",
+            de: "Tanzring",
+            fr: "Ring des Chorégraphies endiablées",
+        },
+        1257 => LocalisedText {
+            en: "Groovy Ring",
+            ja: "リング・オブ・ダンス",
+            de: "Tanzring",
+            fr: "Ring des Chorégraphies endiablées",
+        },
+        1258 => LocalisedText {
+            en: "Rebel Ring",
+            ja: "リング・オブ・アート",
+            de: "Kunstring",
+            fr: "Ring de l'Inspiration artistique",
+        },
+        1259 => LocalisedText {
+            en: "Rebel Ring",
+            ja: "リング・オブ・アート",
+            de: "Kunstring",
+            fr: "Ring de l'Inspiration artistique",
+        },
+        1260 => LocalisedText {
+            en: "Demolition Site",
+            ja: "第八層建設区域",
+            de: "Neubaugebiet der achten Ebene",
+            fr: "Site de construction du huitième étage",
+        },
+        1261 => LocalisedText {
+            en: "Demolition Site",
+            ja: "第八層建設区域",
+            de: "Neubaugebiet der achten Ebene",
+            fr: "Site de construction du huitième étage",
+        },
+        1262 => LocalisedText {
+            en: "Hunter's Ring",
+            ja: "リング・オブ・ウルフ",
+            de: "Wolfsring",
+            fr: "Ring du Champion lupin",
+        },
+        1263 => LocalisedText {
+            en: "Hunter's Ring",
+            ja: "リング・オブ・ウルフ",
+            de: "Wolfsring",
+            fr: "Ring du Champion lupin",
+        },
+        1264 => LocalisedText {
+            en: "Lower Jeuno",
+            ja: "ジュノ下層",
+            de: "Unter-Jeuno",
+            fr: "Bas Jeuno",
+        },
+        1265 => LocalisedText {
+            en: "Lower Jeuno",
+            ja: "ジュノ下層",
+            de: "Unter-Jeuno",
+            fr: "Bas Jeuno",
+        },
+        1266 => LocalisedText {
+            en: "The Underkeep",
+            ja: "アンダーキープ",
+            de: "Unterfried",
+            fr: "Gardienne de l'Immémorial",
+        },
+        1267 => LocalisedText {
+            en: "The Sunken Temple of Qarn",
+            ja: "カルン埋没寺院",
+            de: "Versunkener Tempel von Qarn",
+            fr: "Temple enseveli de Qarn",
+        },
+        1268 => LocalisedText {
+            en: "Break Room",
+            ja: "仮眠室",
+            de: "Ruheraum",
+            fr: "Salle de repos",
+        },
+        1270 => LocalisedText {
+            en: "Recollection",
+            ja: "玉座の間",
+            de: "Audienzhalle",
+            fr: "Salle du trône séculaire",
+        },
+        1271 => LocalisedText {
+            en: "Recollection",
+            ja: "玉座の間",
+            de: "Audienzhalle",
+            fr: "Salle du trône séculaire",
+        },
+        1272 => LocalisedText {
+            en: "Hells' Kier",
+            ja: "獄之底",
+            de: "Höllengrund",
+            fr: "Fond des enfers",
+        },
+        1273 => LocalisedText {
+            en: "Carteneau Flats: Borderland Ruins",
+            ja: "カルテノー平原：外縁遺跡群",
+            de: "Äußere Ruinen",
+            fr: "Ruines frontalières",
+        },
+        1274 => LocalisedText {
+            en: "Throne Room",
+            ja: "玉座の間",
+            de: "Audienzhalle",
+            fr: "Salle du trône séculaire",
+        },
+        1275 => LocalisedText {
+            en: "Recollection",
+            ja: "玉座の間",
+            de: "Audienzhalle",
+            fr: "Salle du trône séculaire",
+        },
+        1276 => LocalisedText {
+            en: "Demolition Site",
+            ja: "第八層建設区域",
+            de: "Neubaugebiet der achten Ebene",
+            fr: "Site de construction du huitième étage",
         },
     };
 }

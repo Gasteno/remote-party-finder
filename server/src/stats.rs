@@ -1,9 +1,9 @@
-use std::borrow::Cow;
-use std::collections::HashMap;
-use sestring::SeString;
-use serde::{Deserialize, Deserializer};
 use crate::ffxiv::Language;
 use crate::listing::{DutyCategory, DutyType};
+use serde::{Deserialize, Deserializer};
+use sestring::SeString;
+use std::borrow::Cow;
+use std::collections::HashMap;
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct CachedStatistics {
@@ -29,7 +29,8 @@ pub struct Statistics {
 }
 
 fn alias_de<'de, D>(de: D) -> std::result::Result<HashMap<u32, Alias>, D::Error>
-where D: Deserializer<'de>
+where
+    D: Deserializer<'de>,
 {
     let aliases: Vec<AliasInfo> = Deserialize::deserialize(de)?;
     let map = aliases
