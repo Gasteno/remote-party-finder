@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
-using DalamudImGui = Dalamud.Bindings.ImGui;
+using Dalamud.Bindings.ImGui;
 
 namespace RemotePartyFinder;
 
@@ -19,7 +19,7 @@ public class ConfigWindow : Window, IDisposable
     public ConfigWindow(Plugin plugin) : base("Remote Party Finder")
     {
         _configuration = plugin.Configuration;
-        Flags = DalamudImGui.ImGuiWindowFlags.NoCollapse | DalamudImGui.ImGuiWindowFlags.AlwaysAutoResize;
+        Flags = ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.AlwaysAutoResize;
 
         Size = new Vector2(500, 0);
     }
@@ -36,10 +36,10 @@ public class ConfigWindow : Window, IDisposable
     public override void Draw()
     {
         var isAdvanced = _configuration.AdvancedSettingsEnabled;
-        DalamudImGui.ImGui.TextWrapped(
+        ImGui.TextWrapped(
             "This section is for advanced users to configure which services to send party finder data to. " +
             "Only enable if you know what you are doing.");
-        if (DalamudImGui.ImGui.Checkbox("Enable Advanced Settings", ref isAdvanced))
+        if (ImGui.Checkbox("Enable Advanced Settings", ref isAdvanced))
         {
             _configuration.AdvancedSettingsEnabled = isAdvanced;
             _configuration.Save();
@@ -48,35 +48,35 @@ public class ConfigWindow : Window, IDisposable
         if (!isAdvanced) return;
 
         
-        using (ImRaii.Table((DalamudImGui.ImU8String)"uploadUrls", 3, DalamudImGui.ImGuiTableFlags.SizingFixedFit | DalamudImGui.ImGuiTableFlags.Borders))
+        using (ImRaii.Table((ImU8String)"uploadUrls", 3, ImGuiTableFlags.SizingFixedFit | ImGuiTableFlags.Borders))
         {
-            DalamudImGui.ImGui.TableSetupColumn("#", DalamudImGui.ImGuiTableColumnFlags.WidthFixed);
-            DalamudImGui.ImGui.TableSetupColumn("URL", DalamudImGui.ImGuiTableColumnFlags.WidthStretch);
-            DalamudImGui.ImGui.TableSetupColumn("Enabled", DalamudImGui.ImGuiTableColumnFlags.WidthFixed);
-            DalamudImGui.ImGui.TableHeadersRow();
+            ImGui.TableSetupColumn("#", ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn("URL", ImGuiTableColumnFlags.WidthStretch);
+            ImGui.TableSetupColumn("Enabled", ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableHeadersRow();
             
-            using var id = ImRaii.PushId((DalamudImGui.ImU8String)"urls");
+            using var id = ImRaii.PushId((ImU8String)"urls");
             foreach (var (uploadUrl, index) in _configuration.UploadUrls.Select((url, index) => (url, index + 1)))
             {
                 id.Push(index);
 
-                DalamudImGui.ImGui.TableNextRow();
-                DalamudImGui.ImGui.TableSetColumnIndex(0);
-                DalamudImGui.ImGui.TextUnformatted(index.ToString());
+                ImGui.TableNextRow();
+                ImGui.TableSetColumnIndex(0);
+                ImGui.TextUnformatted(index.ToString());
                 
-                DalamudImGui.ImGui.TableSetColumnIndex(1);
-                DalamudImGui.ImGui.TextUnformatted(uploadUrl.Url);
+                ImGui.TableSetColumnIndex(1);
+                ImGui.TextUnformatted(uploadUrl.Url);
 
-                DalamudImGui.ImGui.TableSetColumnIndex(2);
+                ImGui.TableSetColumnIndex(2);
                 var isEnabled = uploadUrl.IsEnabled;
-                if (DalamudImGui.ImGui.Checkbox("##uploadUrlCheckbox", ref isEnabled))
+                if (ImGui.Checkbox("##uploadUrlCheckbox", ref isEnabled))
                 {
                     uploadUrl.IsEnabled = isEnabled;
                 }
 
                 if (!uploadUrl.IsDefault)
                 {
-                    DalamudImGui.ImGui.SameLine();
+                    ImGui.SameLine();
                     if (ImGuiComponents.IconButton(Dalamud.Interface.FontAwesomeIcon.Trash))
                     {
                         _configuration.UploadUrls = _configuration.UploadUrls.Remove(uploadUrl);
@@ -86,11 +86,11 @@ public class ConfigWindow : Window, IDisposable
                 id.Pop();
             }
             
-            DalamudImGui.ImGui.TableNextRow();
-            DalamudImGui.ImGui.TableSetColumnIndex(1);
-            DalamudImGui.ImGui.SetNextItemWidth(-1);
-            DalamudImGui.ImGui.InputText("##uploadUrlInput", ref _uploadUrlTempString, 300);
-            DalamudImGui.ImGui.TableNextColumn();
+            ImGui.TableNextRow();
+            ImGui.TableSetColumnIndex(1);
+            ImGui.SetNextItemWidth(-1);
+            ImGui.InputText("##uploadUrlInput", ref _uploadUrlTempString, 300);
+            ImGui.TableNextColumn();
 
             if (!string.IsNullOrEmpty(_uploadUrlTempString) &&
                 ImGuiComponents.IconButton(Dalamud.Interface.FontAwesomeIcon.Plus))
@@ -116,17 +116,17 @@ public class ConfigWindow : Window, IDisposable
             }
         }
 
-        DalamudImGui.ImGui.Dummy(new (0, 5));
+        ImGui.Dummy(new (0, 5));
 
-        if (DalamudImGui.ImGui.Button("Reset To Default##uploadUrlDefault"))
+        if (ImGui.Button("Reset To Default##uploadUrlDefault"))
         {
             ResetToDefault();
         }
 
         if (string.IsNullOrEmpty(_uploadUrlError)) return;
         
-        DalamudImGui.ImGui.SameLine();
-        DalamudImGui.ImGui.TextColored(new Vector4(1, 0, 0, 1), _uploadUrlError);
+        ImGui.SameLine();
+        ImGui.TextColored(new Vector4(1, 0, 0, 1), _uploadUrlError);
     }
 
     private void ResetToDefault()
