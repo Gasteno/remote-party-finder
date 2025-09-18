@@ -1,5 +1,5 @@
-use super::LocalisedText;
 use std::collections::HashMap;
+use super::LocalisedText;
 
 #[derive(Debug, Copy, Clone)]
 pub struct DutyInfo {
@@ -8,7 +8,7 @@ pub struct DutyInfo {
     pub content_kind: ContentKind,
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone, Copy)]
 #[allow(unused)]
 #[repr(u32)]
 pub enum ContentKind {
@@ -46,6 +46,7 @@ pub enum ContentKind {
     GATE = 35,
     IslandSanctuary = 36,
     ChaoticAllianceRaid = 37,
+    OccultCrescent = 38,
     Other(u32),
 }
 
@@ -87,6 +88,7 @@ impl ContentKind {
             35 => Self::GATE,
             36 => Self::IslandSanctuary,
             37 => Self::ChaoticAllianceRaid,
+            38 => Self::OccultCrescent,
             x => Self::Other(x),
         }
     }
@@ -127,6 +129,7 @@ impl ContentKind {
             Self::GATE => 35,
             Self::IslandSanctuary => 36,
             Self::ChaoticAllianceRaid => 37,
+            Self::OccultCrescent => 38,
             Self::Other(x) => x,
         }
     }
@@ -4457,7 +4460,7 @@ lazy_static::lazy_static! {
         643 => DutyInfo {
             name: LocalisedText {
                 en: "Novice Mahjong (Full Ranked Match)",
-                ja: "ドマ式麻雀：半荘戦一般卓（段位変動有り）",
+                ja: "ドマ式麻雀：半荘戦一般卓 (段位変動有り)",
                 de: "Anfänger-Mahjong (komplette Partie, gewertet)",
                 fr: "Mahjong domien: tous rangs (partie classée)",
             },
@@ -4467,7 +4470,7 @@ lazy_static::lazy_static! {
         644 => DutyInfo {
             name: LocalisedText {
                 en: "Advanced Mahjong (Full Ranked Match)",
-                ja: "ドマ式麻雀：半荘戦有段卓（段位変動有り）",
+                ja: "ドマ式麻雀：半荘戦有段卓 (段位変動有り)",
                 de: "Fortgeschrittenen-Mahjong (komplette Partie, gewertet)",
                 fr: "Mahjong domien: dan seulement (partie classée)",
             },
@@ -4477,7 +4480,7 @@ lazy_static::lazy_static! {
         645 => DutyInfo {
             name: LocalisedText {
                 en: "Four-player Mahjong (Full Match, Kuitan Enabled)",
-                ja: "ドマ式麻雀：半荘戦4人セット卓（クイタン有り）",
+                ja: "ドマ式麻雀：半荘戦4人セット卓 (クイタン有り)",
                 de: "4-Spieler-Mahjong (komplette Partie, Kuitan aktiviert)",
                 fr: "Mahjong domien: 4 joueurs (partie avec kuitan)",
             },
@@ -4517,7 +4520,7 @@ lazy_static::lazy_static! {
         650 => DutyInfo {
             name: LocalisedText {
                 en: "Four-player Mahjong (Full Match, Kuitan Disabled)",
-                ja: "ドマ式麻雀：半荘戦4人セット卓（クイタン無し）",
+                ja: "ドマ式麻雀：半荘戦4人セット卓 (クイタン無し)",
                 de: "4-Spieler-Mahjong (komplette Partie, Kuitan deaktiviert)",
                 fr: "Mahjong domien: 4 joueurs (partie sans kuitan)",
             },
@@ -5507,7 +5510,7 @@ lazy_static::lazy_static! {
         766 => DutyInfo {
             name: LocalisedText {
                 en: "Novice Mahjong (Quick Ranked Match)",
-                ja: "ドマ式麻雀：東風戦一般卓（段位変動有り）",
+                ja: "ドマ式麻雀：東風戦一般卓 (段位変動有り)",
                 de: "Anfänger-Mahjong (schnelle Partie, gewertet)",
                 fr: "Mahjong domien: tous rangs (partie rapide classée)",
             },
@@ -5517,7 +5520,7 @@ lazy_static::lazy_static! {
         767 => DutyInfo {
             name: LocalisedText {
                 en: "Advanced Mahjong (Quick Ranked Match)",
-                ja: "ドマ式麻雀：東風戦有段卓（段位変動有り）",
+                ja: "ドマ式麻雀：東風戦有段卓 (段位変動有り)",
                 de: "Fortgeschrittenen-Mahjong (schnelle Partie, gewertet)",
                 fr: "Mahjong domien: dan seulement (partie rapide classée)",
             },
@@ -5527,7 +5530,7 @@ lazy_static::lazy_static! {
         768 => DutyInfo {
             name: LocalisedText {
                 en: "Four-player Mahjong (Quick Match, Kuitan Enabled)",
-                ja: "ドマ式麻雀：東風戦4人セット卓（クイタン有り）",
+                ja: "ドマ式麻雀：東風戦4人セット卓 (クイタン有り)",
                 de: "4-Spieler-Mahjong (schnelle Partie, Kuitan aktiviert)",
                 fr: "Mahjong domien: 4 joueurs (partie rapide avec kuitan)",
             },
@@ -5537,7 +5540,7 @@ lazy_static::lazy_static! {
         769 => DutyInfo {
             name: LocalisedText {
                 en: "Four-player Mahjong (Quick Match, Kuitan Disabled)",
-                ja: "ドマ式麻雀：東風戦4人セット卓（クイタン無し）",
+                ja: "ドマ式麻雀：東風戦4人セット卓 (クイタン無し)",
                 de: "4-Spieler-Mahjong (schnelle Partie, Kuitan deaktiviert)",
                 fr: "Mahjong domien: 4 joueurs (partie rapide sans kuitan)",
             },
@@ -7824,6 +7827,16 @@ lazy_static::lazy_static! {
             high_end: false,
             content_kind: ContentKind::Trials,
         },
+        1018 => DutyInfo {
+            name: LocalisedText {
+                en: "The Occult Crescent: South Horn",
+                ja: "蜃気楼の島 クレセントアイル：南征編",
+                de: "Das südliche Kreszentia",
+                fr: "Île de Lunule méridionale",
+            },
+            high_end: false,
+            content_kind: ContentKind::OccultCrescent,
+        },
         1019 => DutyInfo {
             name: LocalisedText {
                 en: "AAC Cruiserweight M1",
@@ -7914,15 +7927,15 @@ lazy_static::lazy_static! {
             high_end: false,
             content_kind: ContentKind::Dungeons,
         },
-        1029 => DutyInfo {
+        1028 => DutyInfo {
             name: LocalisedText {
-                en: "Hells' Kier (Unreal)",
-                ja: "幻朱雀征魂戦",
-                de: "Traumprüfung - Suzaku",
-                fr: "Le Nid des Lamentations (irréel)",
+                en: "The Meso Terminal",
+                ja: "永久幽界 メインターミナル",
+                de: "Das Meso-System",
+                fr: "Le Mésoterminal",
             },
-            high_end: true,
-            content_kind: ContentKind::Trials,
+            high_end: false,
+            content_kind: ContentKind::Dungeons,
         },
         1030 => DutyInfo {
             name: LocalisedText {
@@ -7940,6 +7953,176 @@ lazy_static::lazy_static! {
                 ja: "極ゼレニア討滅戦",
                 de: "Gok Tajaal - Zelenia",
                 fr: "Le Sanctuaire du Serment (extrême)",
+            },
+            high_end: false,
+            content_kind: ContentKind::Trials,
+        },
+        1042 => DutyInfo {
+            name: LocalisedText {
+                en: "The Wreath of Snakes (Unreal)",
+                ja: "幻青龍征魂戦",
+                de: "Traumprüfung - Seiryu",
+                fr: "L'Îlot des Amertumes (irréel)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Trials,
+        },
+        1046 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1047 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1048 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1049 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1050 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1051 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1052 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1053 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1054 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1055 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1056 => DutyInfo {
+            name: LocalisedText {
+                en: "The Bayside Battleground",
+                ja: "ベイサイド・バトルグラウンド",
+                de: "Der Küstenkampf",
+                fr: "Le Rivage redoutable",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1057 => DutyInfo {
+            name: LocalisedText {
+                en: "Crystalline Conflict (Custom Match - The Bayside Battleground)",
+                ja: "クリスタルコンフリクト(ベイサイド・バトルグラウンド：カスタムマッチ)",
+                de: "Crystalline Conflict: Der Küstenkampf (Schaukampf)",
+                fr: "Crys. Conflict (partie perso. - Le Rivage redoutable)",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1058 => DutyInfo {
+            name: LocalisedText {
+                en: "San d'Oria: The Second Walk",
+                ja: "サンドリア：ザ・セカンドウォーク",
+                de: "San d'Oria: Die zweite Etappe",
+                fr: "San d'Oria - La deuxième perambulation",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1060 => DutyInfo {
+            name: LocalisedText {
+                en: "Vault Oneiron",
+                ja: "宝物庫 ボルト・オネイロン",
+                de: "Tresor Oneiron",
+                fr: "Le coffre d'Oneiron",
+            },
+            high_end: false,
+            content_kind: ContentKind::TreasureHunt,
+        },
+        1061 => DutyInfo {
+            name: LocalisedText {
+                en: "The Ageless Necropolis",
+                ja: "永遠の闇討滅戦",
+                de: "Zel Tajaal - Das Ewige Dunkel",
+                fr: "La Nécropole intemporelle",
+            },
+            high_end: false,
+            content_kind: ContentKind::Trials,
+        },
+        1062 => DutyInfo {
+            name: LocalisedText {
+                en: "The Minstrel's Ballad: Necron's Embrace",
+                ja: "極永遠の闇討滅戦",
+                de: "Gok Tajaal - Das Ewige Dunkel",
+                fr: "La Nécropole intemporelle (extrême)",
             },
             high_end: true,
             content_kind: ContentKind::Trials,

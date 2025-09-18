@@ -1,5 +1,5 @@
-use super::LocalisedText;
 use std::collections::HashMap;
+use super::LocalisedText;
 
 lazy_static::lazy_static! {
     pub static ref TERRITORY_NAMES: HashMap<u32, LocalisedText> = maplit::hashmap! {
@@ -182,12 +182,6 @@ lazy_static::lazy_static! {
             ja: "古城アムダプール",
             de: "Ruinen von Amdapor",
             fr: "Château d'Amdapor",
-        },
-        170 => LocalisedText {
-            en: "Cutter's Cry",
-            ja: "カッターズクライ",
-            de: "Sägerschrei",
-            fr: "Gouffre hurlant",
         },
         171 => LocalisedText {
             en: "Dzemael Darkhold",
@@ -6057,6 +6051,12 @@ lazy_static::lazy_static! {
             de: "Südliches Thanalan",
             fr: "Thanalan méridional",
         },
+        1237 => LocalisedText {
+            en: "Sinus Ardorum",
+            ja: "焦がれの入江",
+            de: "Sinus Ardorum",
+            fr: "Sinus Ardorum",
+        },
         1238 => LocalisedText {
             en: "A Future Rewritten",
             ja: "もうひとつの未来",
@@ -6110,6 +6110,12 @@ lazy_static::lazy_static! {
             ja: "ジュノ：ザ・ファーストウォーク",
             de: "Jeuno: Die erste Etappe",
             fr: "Jeuno - La première perambulation",
+        },
+        1252 => LocalisedText {
+            en: "South Horn",
+            ja: "三日月島南部",
+            de: "Südliches Kreszentia",
+            fr: "Île de Lunule méridionale",
         },
         1253 => LocalisedText {
             en: "Starlight Stalls",
@@ -6207,6 +6213,12 @@ lazy_static::lazy_static! {
             de: "Ruheraum",
             fr: "Salle de repos",
         },
+        1269 => LocalisedText {
+            en: "Phantom Village",
+            ja: "蜃気楼の町",
+            de: "Trugstadt",
+            fr: "Ville fantôme",
+        },
         1270 => LocalisedText {
             en: "Recollection",
             ja: "玉座の間",
@@ -6218,12 +6230,6 @@ lazy_static::lazy_static! {
             ja: "玉座の間",
             de: "Audienzhalle",
             fr: "Salle du trône séculaire",
-        },
-        1272 => LocalisedText {
-            en: "Hells' Kier",
-            ja: "獄之底",
-            de: "Höllengrund",
-            fr: "Fond des enfers",
         },
         1273 => LocalisedText {
             en: "Carteneau Flats: Borderland Ruins",
@@ -6248,6 +6254,102 @@ lazy_static::lazy_static! {
             ja: "第八層建設区域",
             de: "Neubaugebiet der achten Ebene",
             fr: "Site de construction du huitième étage",
+        },
+        1277 => LocalisedText {
+            en: "Main Deck",
+            ja: "大洋の船上",
+            de: "Auf hoher See",
+            fr: "Pont du navire",
+        },
+        1278 => LocalisedText {
+            en: "Phantom Village",
+            ja: "蜃気楼の町",
+            de: "Trugstadt",
+            fr: "Ville fantôme",
+        },
+        1279 => LocalisedText {
+            en: "Vault Oneiron",
+            ja: "ボルト・オネイロン",
+            de: "Tresor Oneiron",
+            fr: "Coffre d'Oneiron",
+        },
+        1291 => LocalisedText {
+            en: "Phaenna",
+            ja: "惑星パエンナ",
+            de: "Phaenna",
+            fr: "Phaenna",
+        },
+        1292 => LocalisedText {
+            en: "The Meso Terminal",
+            ja: "メインターミナル",
+            de: "Meso-System",
+            fr: "Mésoterminal",
+        },
+        1293 => LocalisedText {
+            en: "The Bayside Battleground",
+            ja: "ベイサイド・バトルグラウンド",
+            de: "Der Küstenkampf",
+            fr: "Le Rivage redoutable",
+        },
+        1294 => LocalisedText {
+            en: "The Bayside Battleground",
+            ja: "ベイサイド・バトルグラウンド",
+            de: "Der Küstenkampf",
+            fr: "Le Rivage redoutable",
+        },
+        1295 => LocalisedText {
+            en: "The Ageless Necropolis",
+            ja: "死の満ちる地",
+            de: "Fülle des Todes",
+            fr: "Nécropole intemporelle",
+        },
+        1296 => LocalisedText {
+            en: "The Ageless Necropolis",
+            ja: "死の満ちる地",
+            de: "Fülle des Todes",
+            fr: "Nécropole intemporelle",
+        },
+        1299 => LocalisedText {
+            en: "Containment Complex 10-29",
+            ja: "格納殻10-29",
+            de: "Lagerhülle 10-29",
+            fr: "Division d'entreposage 10-29",
+        },
+        1302 => LocalisedText {
+            en: "The Wreath of Snakes",
+            ja: "蛇神大社",
+            de: "Heiligtum der Schlange",
+            fr: "Sanctuaire du Grand Serpent",
+        },
+        1303 => LocalisedText {
+            en: "Cutter's Cry",
+            ja: "カッターズクライ",
+            de: "Sägerschrei",
+            fr: "Gouffre hurlant",
+        },
+        1304 => LocalisedText {
+            en: "San d'Oria: The Second Walk",
+            ja: "サンドリア：ザ・セカンドウォーク",
+            de: "San d'Oria: Die zweite Etappe",
+            fr: "San d'Oria - La deuxième perambulation",
+        },
+        1305 => LocalisedText {
+            en: "Haunted Manor",
+            ja: "亡霊屋敷 ホーンテッドマナー",
+            de: "Geisterschloss",
+            fr: "Manoir hanté",
+        },
+        1309 => LocalisedText {
+            en: "Starlight Stalls",
+            ja: "星芒マーケット",
+            de: "Sternenlicht-Stände",
+            fr: "Marché des étoiles",
+        },
+        1312 => LocalisedText {
+            en: "The Ageless Necropolis",
+            ja: "死の満ちる地",
+            de: "Fülle des Todes",
+            fr: "Nécropole intemporelle",
         },
     };
 }

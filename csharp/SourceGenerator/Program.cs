@@ -71,6 +71,13 @@ internal class Program
         [Language.French] = "fr",
     };
 
+    private static string GetFlagName(string jobName)
+    {
+        // Convert job name to flag format: add underscores before capital letters and make uppercase
+        var result = System.Text.RegularExpressions.Regex.Replace(jobName, "([a-z])([A-Z])", "$1_$2");
+        return result.ToUpperInvariant();
+    }
+
     private string? GetLocalisedStruct<T>(uint rowId, Func<T, ReadOnlySeString?> nameFunc, uint indent = 0,
         bool capitalise = false) where T : struct, IExcelRow<T>
     {
@@ -120,7 +127,7 @@ internal class Program
         var sb = DefaultHeader(true);
         sb.Append('\n');
 
-        sb.Append("#[derive(Debug)]\n");
+        sb.Append("#[derive(Debug, Copy, Clone)]\n");
         sb.Append("pub struct DutyInfo {\n");
         sb.Append("    pub name: LocalisedText,\n");
         sb.Append("    pub high_end: bool,\n");
@@ -144,6 +151,7 @@ internal class Program
         sb.Append("}\n\n");
 
         sb.Append("impl ContentKind {\n");
+        sb.Append("    #[expect(unused)]\n");
 
         sb.Append("    fn from_u32(kind: u32) -> Self {\n");
         sb.Append("        match kind {\n");
@@ -217,7 +225,8 @@ internal class Program
     private string GenerateJobs()
     {
         var sb = DefaultHeader();
-        sb.Append("use ffxiv_types::jobs::{ClassJob, Class, Job, NonCombatJob};\n\n");
+        sb.Append("use crate::listing::JobFlags;\n");
+        sb.Append("use ffxiv_types::jobs::{Class, ClassJob, Job, NonCombatJob};\n\n");
         sb.Append("lazy_static::lazy_static! {\n");
         sb.Append("    pub static ref JOBS: HashMap<u32, ClassJob> = maplit::hashmap! {\n");
 
@@ -234,22 +243,144 @@ internal class Program
                 continue;
             }
 
-            var isCombat = cj.Role != 0;
-            var isClass = cj.JobIndex == 0;
-
+            // Determine job type for all jobs (including NonCombat)
             string value;
-            if (isCombat)
+            if (cj.RowId >= 8 && cj.RowId <= 18)
             {
-                value = isClass
-                    ? $"ClassJob::Class(Class::{name})"
-                    : $"ClassJob::Job(Job::{name})";
+                // Crafters and gatherers (8-18)
+                value = $"ClassJob::NonCombat(NonCombatJob::{name})";
+            }
+            else if (cj.RowId >= 1 && cj.RowId <= 7)
+            {
+                // Base combat classes (1-7)
+                value = $"ClassJob::Class(Class::{name})";
+            }
+            else if (cj.RowId == 19)
+            {
+                // Paladin should be Job
+                value = $"ClassJob::Job(Job::{name})";
+            }
+            else if (cj.RowId == 20)
+            {
+                // Monk should be Job
+                value = $"ClassJob::Job(Job::{name})";
+            }
+            else if (cj.RowId == 24)
+            {
+                // WhiteMage should be Job
+                value = $"ClassJob::Job(Job::{name})";
+            }
+            else if (cj.RowId == 25)
+            {
+                // BlackMage should be Job
+                value = $"ClassJob::Job(Job::{name})";
+            }
+            else if (cj.RowId == 26)
+            {
+                // Arcanist should be Class
+                value = $"ClassJob::Class(Class::{name})";
+            }
+            else if (cj.RowId == 29)
+            {
+                // Rogue should be Class
+                value = $"ClassJob::Class(Class::{name})";
+            }
+            else if (cj.RowId == 36)
+            {
+                // Blue Mage should be Job
+                value = $"ClassJob::Job(Job::{name})";
             }
             else
             {
-                value = $"ClassJob::NonCombat(NonCombatJob::{name})";
+                // All other combat jobs (21+ except the special cases above)
+                value = $"ClassJob::Job(Job::{name})";
             }
 
             sb.Append($"        {cj.RowId} => {value},\n");
+        }
+
+        sb.Append("    };\n\n");
+        sb.Append("    pub static ref JOBS_TO_FLAGS: HashMap<&'static str, JobFlags> = maplit::hashmap! {\n");
+
+        foreach (var cj in this.Data[Language.English].GetExcelSheet<ClassJob>()!)
+        {
+            if (cj.RowId == 0)
+            {
+                continue;
+            }
+
+            var name = cj.NameEnglish.ExtractText().Replace(" ", "");
+            if (name.Length <= 0)
+            {
+                continue;
+            }
+
+            // Skip NonCombat jobs (crafters, gatherers only)
+            if (cj.RowId >= 8 && cj.RowId <= 18)
+            {
+                continue;
+            }
+
+            // Determine job type for combat jobs only (same logic as above)
+            string classJobStr;
+            string flagName;
+            
+            if (cj.RowId >= 1 && cj.RowId <= 7)
+            {
+                // Base combat classes (1-7)
+                classJobStr = $"ClassJob::Class(Class::{name})";
+                flagName = GetFlagName(name);
+            }
+            else if (cj.RowId == 19)
+            {
+                // Paladin should be Job
+                classJobStr = $"ClassJob::Job(Job::{name})";
+                flagName = GetFlagName(name);
+            }
+            else if (cj.RowId == 20)
+            {
+                // Monk should be Job
+                classJobStr = $"ClassJob::Job(Job::{name})";
+                flagName = GetFlagName(name);
+            }
+            else if (cj.RowId == 24)
+            {
+                // WhiteMage should be Job
+                classJobStr = $"ClassJob::Job(Job::{name})";
+                flagName = GetFlagName(name);
+            }
+            else if (cj.RowId == 25)
+            {
+                // BlackMage should be Job
+                classJobStr = $"ClassJob::Job(Job::{name})";
+                flagName = GetFlagName(name);
+            }
+            else if (cj.RowId == 26)
+            {
+                // Arcanist should be Class
+                classJobStr = $"ClassJob::Class(Class::{name})";
+                flagName = GetFlagName(name);
+            }
+            else if (cj.RowId == 29)
+            {
+                // Rogue should be Class
+                classJobStr = $"ClassJob::Class(Class::{name})";
+                flagName = GetFlagName(name);
+            }
+            else if (cj.RowId == 36)
+            {
+                // Blue Mage should be Job
+                classJobStr = $"ClassJob::Job(Job::{name})";
+                flagName = GetFlagName(name);
+            }
+            else
+            {
+                // All other combat jobs (21+ except the special cases above)
+                classJobStr = $"ClassJob::Job(Job::{name})";
+                flagName = GetFlagName(name);
+            }
+
+            sb.Append($"        {classJobStr}.as_str() => JobFlags::{flagName},\n");
         }
 
         sb.Append("    };\n");
@@ -258,6 +389,7 @@ internal class Program
         return sb.ToString();
     }
 
+
     private string GenerateRoulettes()
     {
         var sb = DefaultHeader(true);
@@ -265,6 +397,7 @@ internal class Program
         sb.Append("#[derive(Debug)]\n");
         sb.Append("pub struct RouletteInfo {\n");
         sb.Append("    pub name: LocalisedText,\n");
+        sb.Append("    #[expect(unused)]\n");
         sb.Append("    pub pvp: bool,\n");
         sb.Append("}\n\n");
 
@@ -309,7 +442,7 @@ internal class Program
 
         foreach (var world in this.Data[Language.English].GetExcelSheet<World>()!)
         {
-            if (world.RowId == 0 || !world.IsPublic || world.UserType == 0 || world.DataCenter.RowId == 0)
+            if (world.RowId == 0 || !world.IsPublic || world.UserType == 0 || world.DataCenter.RowId == 0 || world.RowId == 3000 || world.RowId == 3001)
             {
                 continue;
             }

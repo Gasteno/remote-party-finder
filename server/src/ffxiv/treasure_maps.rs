@@ -1,5 +1,5 @@
-use super::LocalisedText;
 use std::collections::HashMap;
+use super::LocalisedText;
 
 lazy_static::lazy_static! {
     pub static ref TREASURE_MAPS: HashMap<u32, LocalisedText> = maplit::hashmap! {
@@ -146,6 +146,12 @@ lazy_static::lazy_static! {
             ja: "古ぼけた地図G17",
             de: "Br'aaxleder-Schatzkarte",
             fr: "Carte au trésor en peau de br'aax",
+        },
+        24 => LocalisedText {
+            en: "Gargantuaskin Treasure Map",
+            ja: "古ぼけた地図G18",
+            de: "Gargantualeder-Schatzkarte",
+            fr: "Carte au trésor en peau de gargantua",
         },
     };
 }
