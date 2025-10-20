@@ -3216,8 +3216,8 @@ lazy_static::lazy_static! {
         (18, 1407) => LocalisedText {
             en: "magic",
             ja: "魔法",
-            de: "Magie",
-            fr: "Magie",
+            de: "Zauber",
+            fr: "Sort",
         },
         (18, 1408) => LocalisedText {
             en: "weaponskill",
@@ -7809,6 +7809,12 @@ lazy_static::lazy_static! {
             de: "Schneefluenzer",
             fr: "streamer de neige",
         },
+        (49, 379) => LocalisedText {
+            en: "pilgrim's protector",
+            ja: "ピルグリム・プロテクター",
+            de: "Pilgers Freund",
+            fr: "protecteur des pèlerins",
+        },
         (49, 381) => LocalisedText {
             en: "branchbearer",
             ja: "ブランチベアラー",
@@ -7857,6 +7863,30 @@ lazy_static::lazy_static! {
             de: "Magitek-Schlitzer",
             fr: "tailladeur magitek",
         },
+        (49, 393) => LocalisedText {
+            en: "Vurgar the Loyal",
+            ja: "岩兵ヴーガー",
+            de: "Vurgar der Treue",
+            fr: "Vurgar",
+        },
+        (49, 395) => LocalisedText {
+            en: "forgiven mimicry",
+            ja: "フォーギヴン・ミミクリー",
+            de: "Geläuterte Nachahmung",
+            fr: "mimétisme pardonné",
+        },
+        (49, 398) => LocalisedText {
+            en: "Seikret",
+            ja: "セクレト",
+            de: "Saikrii",
+            fr: "Seikret",
+        },
+        (49, 399) => LocalisedText {
+            en: "Felyne support team cart",
+            ja: "ネコ荷車",
+            de: "Notfellwagen des Logistikteams",
+            fr: "charrette de l'équipe de soutien",
+        },
         (49, 400) => LocalisedText {
             en: "yan",
             ja: "ヤーン",
@@ -7875,11 +7905,23 @@ lazy_static::lazy_static! {
             de: "Kosmoschweber",
             fr: "cosmo-planche",
         },
+        (49, 403) => LocalisedText {
+            en: "chandelier of First Light",
+            ja: "ファーストライト・シャンデリア",
+            de: "Kronleuchter des Strahlenden Lichts",
+            fr: "chandelier de la Lumière originelle",
+        },
         (49, 407) => LocalisedText {
             en: "wings of death",
             ja: "ウィング・オブ・デス",
             de: "Flügel des Todes",
             fr: "paire d'ailes de la mort",
+        },
+        (49, 408) => LocalisedText {
+            en: "ornamental shrublet",
+            ja: "花人",
+            de: "Blumerich",
+            fr: "petit enfleuri",
         },
         (50, 1) => LocalisedText {
             en: "gladiator",
@@ -11000,6 +11042,18 @@ lazy_static::lazy_static! {
             ja: "メインターミナル",
             de: "Meso-System",
             fr: "Mésoterminal",
+        },
+        (51, 5276) => LocalisedText {
+            en: "The Windward Wilds",
+            ja: "隔ての荒地",
+            de: "Wildebene",
+            fr: "Plaines venteuses",
+        },
+        (51, 5277) => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
         },
         (51, 5284) => LocalisedText {
             en: "The Ageless Necropolis",
@@ -16333,7 +16387,7 @@ lazy_static::lazy_static! {
             en: "Second Generation",
             ja: "祖霊の牙【弐】",
             de: "Zweites Blut",
-            fr: "Seconde ère",
+            fr: "Deuxième ère",
         },
         (56, 34629) => LocalisedText {
             en: "Third Generation",
@@ -16411,7 +16465,7 @@ lazy_static::lazy_static! {
             en: "Second Legacy",
             ja: "祖霊の蛇【弐】",
             de: "Zweites Erbe",
-            fr: "Second cycle",
+            fr: "Deuxième cycle",
         },
         (56, 34642) => LocalisedText {
             en: "Third Legacy",
@@ -21663,6 +21717,18 @@ lazy_static::lazy_static! {
             de: "/lockern",
             fr: "/séchauffer",
         },
+        (62, 706) => LocalisedText {
+            en: "/drinkgreentea",
+            ja: "/drinkgreentea",
+            de: "/grünteetrinken",
+            fr: "/thévert",
+        },
+        (62, 707) => LocalisedText {
+            en: "/savortea",
+            ja: "/savortea",
+            de: "/grünteegenießen",
+            fr: "/thévertcontinu",
+        },
         (62, 708) => LocalisedText {
             en: "/pen",
             ja: "/pen",
@@ -23024,7 +23090,7 @@ lazy_static::lazy_static! {
             en: "Second Generation",
             ja: "祖霊の牙【弐】",
             de: "Zweites Blut",
-            fr: "Seconde ère",
+            fr: "Deuxième ère",
         },
         (63, 39171) => LocalisedText {
             en: "Third Generation",
@@ -23084,7 +23150,7 @@ lazy_static::lazy_static! {
             en: "Second Legacy",
             ja: "祖霊の蛇【弐】",
             de: "Zweites Erbe",
-            fr: "Second cycle",
+            fr: "Deuxième cycle",
         },
         (63, 39181) => LocalisedText {
             en: "Third Legacy",
@@ -26984,7 +27050,7 @@ lazy_static::lazy_static! {
             en: "Rororrlo Teh",
             ja: "ロローロ・テー",
             de: "Rororrlo Teh",
-            fr: "rororrloh teh",
+            fr: "rororrlo teh",
         },
         (65, 516) => LocalisedText {
             en: "the Cornservant",
@@ -27178,11 +27244,29 @@ lazy_static::lazy_static! {
             de: "Skalla-Uolosapa",
             fr: "uolosapa de Skalla",
         },
+        (65, 551) => LocalisedText {
+            en: "Seikret fledgling",
+            ja: "ベビーセクレト",
+            de: "Saikrii-Küken",
+            fr: "bébé Seikret",
+        },
+        (65, 552) => LocalisedText {
+            en: "Vigorwasp",
+            ja: "回復ミツムシ",
+            de: "Vitalitätswespe",
+            fr: "vitaguêpe",
+        },
         (65, 553) => LocalisedText {
             en: "model suit",
             ja: "パワーレスローダー",
             de: "Zwergsternenläufer",
             fr: "mécano cosmique factice",
+        },
+        (65, 554) => LocalisedText {
+            en: "wind-up Yok Huy",
+            ja: "マメット・ヨカフイ",
+            de: "Aufzieh-Yok Huy",
+            fr: "Yok Huy miniature",
         },
         (65, 555) => LocalisedText {
             en: "raven-red gobtank",
@@ -27214,6 +27298,12 @@ lazy_static::lazy_static! {
             de: "Mini-Krähe",
             fr: "mini-corbeau",
         },
+        (65, 562) => LocalisedText {
+            en: "wind-up Feo Ul",
+            ja: "マメット・フェオ＝ウル",
+            de: "Feo Ul",
+            fr: "Feo Ul miniature",
+        },
         (65, 563) => LocalisedText {
             en: "sunray ray",
             ja: "エイエイ",
@@ -27231,6 +27321,12 @@ lazy_static::lazy_static! {
             ja: "いただきキトン",
             de: "Bettelcätzchen",
             fr: "bébé chat-pardeur",
+        },
+        (65, 566) => LocalisedText {
+            en: "sin beaver",
+            ja: "シンビーバー",
+            de: "Sündenbiber",
+            fr: "castor purgateur",
         },
         (67, 50) => LocalisedText {
             en: "Royal Authority Combo",
@@ -29647,7 +29743,7 @@ lazy_static::lazy_static! {
         (28, 2955) => LocalisedText {
             en: "Soul Voice Gauge",
             ja: "ソウルボイスゲージ",
-            de: "Seelenstimme",
+            de: "Seelenstimme-Balken",
             fr: "Jauge de voix de l'âme",
         },
         (28, 2956) => LocalisedText {
@@ -30825,6 +30921,84 @@ lazy_static::lazy_static! {
             ja: "魔科学器:リレイズ",
             de: "Ätherogefäß des Lebens",
             fr: "magismobjet de résurrection",
+        },
+        (27, 3649) => LocalisedText {
+            en: "Pomander of Haste",
+            ja: "魔土器:ヘイスト",
+            de: "Tongefäß der Hast",
+            fr: "poterie magique de hâte",
+        },
+        (27, 3650) => LocalisedText {
+            en: "Pomander of Purification",
+            ja: "魔土器:浄化の守り",
+            de: "Tongefäß der Reinigung",
+            fr: "poterie magique de purification",
+        },
+        (27, 3651) => LocalisedText {
+            en: "Pomander of Devotion",
+            ja: "魔土器:巡礼の導き",
+            de: "Tongefäß der Weisung",
+            fr: "poterie magique de dévotion",
+        },
+        (27, 3652) => LocalisedText {
+            en: "poisonfruit incense",
+            ja: "ジュニパーの香・宿命",
+            de: "Todesbeeren",
+            fr: "encens de genévrier de la fatalité",
+        },
+        (27, 3653) => LocalisedText {
+            en: "mazeroot incense",
+            ja: "ジュニパーの香・明敏",
+            de: "Wandelwurz",
+            fr: "encens de genévrier de la sagacité",
+        },
+        (27, 3654) => LocalisedText {
+            en: "barkbalm incense",
+            ja: "ジュニパーの香・安寧",
+            de: "Sakralharz",
+            fr: "encens de genévrier de la quiétude",
+        },
+        (27, 3655) => LocalisedText {
+            en: "Altar of Return",
+            ja: "再生の祭壇",
+            de: "Altar des Lebens",
+            fr: "autel de résurrection",
+        },
+        (27, 3656) => LocalisedText {
+            en: "sacramental spirits",
+            ja: "光耀の聖酒",
+            de: "Wein der Sakramente",
+            fr: "spiritueux de l'Aurore",
+        },
+        (27, 3657) => LocalisedText {
+            en: "sacramental spices",
+            ja: "光耀の香油",
+            de: "Myrrhe der Sakramente",
+            fr: "huile de l'Aurore",
+        },
+        (27, 3658) => LocalisedText {
+            en: "sacramental grain",
+            ja: "光耀の穀物",
+            de: "Getreide der Sakramente",
+            fr: "céréales de l'Aurore",
+        },
+        (27, 3659) => LocalisedText {
+            en: "sacramental light",
+            ja: "光耀の蝋燭",
+            de: "Kerze der Sakramente",
+            fr: "bougie de l'Aurore",
+        },
+        (27, 3660) => LocalisedText {
+            en: "sacramental lilies",
+            ja: "光耀の百合",
+            de: "Lilie der Sakramente",
+            fr: "lys de l'Aurore",
+        },
+        (27, 3661) => LocalisedText {
+            en: "votive candelabras",
+            ja: "光耀の燭台",
+            de: "Leuchter",
+            fr: "candélabre de l'Aurore",
         },
         (17, 4000) => LocalisedText {
             en: "magia board",
@@ -32110,6 +32284,18 @@ lazy_static::lazy_static! {
             de: "Traumprüfung - Seiryu",
             fr: "Îlot des Amertumes (irréel)",
         },
+        (24, 5173) => LocalisedText {
+            en: "The Windward Wilds",
+            ja: "護竜アルシュベルド狩猟戦",
+            de: "Jagd auf Wächter-Arkveld",
+            fr: "Chasse à l'Arkveld Gardien",
+        },
+        (24, 5174) => LocalisedText {
+            en: "The Windward Wilds (Extreme)",
+            ja: "極護竜アルシュベルド狩猟戦",
+            de: "Jagd auf Wächter-Arkveld (schwer)",
+            fr: "Chasse à l'Arkveld Gardien (extrême)",
+        },
         (24, 5175) => LocalisedText {
             en: "The Ageless Necropolis",
             ja: "永遠の闇討滅戦",
@@ -32134,11 +32320,29 @@ lazy_static::lazy_static! {
             de: "Meso-System",
             fr: "Mésoterminal",
         },
+        (24, 5179) => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        (24, 5180) => LocalisedText {
+            en: "The Final Verse (Quantum)",
+            ja: "詩想エミネントグリーフ討滅戦",
+            de: "Eminente Trauer (variabel)",
+            fr: "Le Verset final (quantique)",
+        },
         (24, 5181) => LocalisedText {
             en: "The Bayside Battleground",
             ja: "ベイサイド・バトルグラウンド",
             de: "Küstenkampf",
             fr: "Rivage redoutable",
+        },
+        (24, 5182) => LocalisedText {
+            en: "The Final Verse",
+            ja: "エミネントグリーフ討滅戦",
+            de: "Eminente Trauer",
+            fr: "Le Verset final",
         },
     };
 }

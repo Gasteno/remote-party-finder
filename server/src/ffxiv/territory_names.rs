@@ -6273,6 +6273,72 @@ lazy_static::lazy_static! {
             de: "Tresor Oneiron",
             fr: "Coffre d'Oneiron",
         },
+        1280 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1281 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1282 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1283 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1284 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1285 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1286 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1287 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1288 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1289 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
+        1290 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
         1291 => LocalisedText {
             en: "Phaenna",
             ja: "惑星パエンナ",
@@ -6309,11 +6375,29 @@ lazy_static::lazy_static! {
             de: "Fülle des Todes",
             fr: "Nécropole intemporelle",
         },
+        1297 => LocalisedText {
+            en: "Zirgorteh the Open-armed",
+            ja: "ジィゴーテー拝壇",
+            de: "Zirgorteh der Grüßende",
+            fr: "Autel de Zirgorteh",
+        },
         1299 => LocalisedText {
             en: "Containment Complex 10-29",
             ja: "格納殻10-29",
             de: "Lagerhülle 10-29",
             fr: "Division d'entreposage 10-29",
+        },
+        1300 => LocalisedText {
+            en: "The Windward Wilds",
+            ja: "隔ての荒地",
+            de: "Wildebene",
+            fr: "Plaines venteuses",
+        },
+        1301 => LocalisedText {
+            en: "The Windward Wilds",
+            ja: "隔ての荒地",
+            de: "Wildebene",
+            fr: "Plaines venteuses",
         },
         1302 => LocalisedText {
             en: "The Wreath of Snakes",
@@ -6339,17 +6423,35 @@ lazy_static::lazy_static! {
             de: "Geisterschloss",
             fr: "Manoir hanté",
         },
+        1306 => LocalisedText {
+            en: "The Windward Wilds",
+            ja: "隔ての荒地",
+            de: "Wildebene",
+            fr: "Plaines venteuses",
+        },
         1309 => LocalisedText {
             en: "Starlight Stalls",
             ja: "星芒マーケット",
             de: "Sternenlicht-Stände",
             fr: "Marché des étoiles",
         },
+        1311 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
+        },
         1312 => LocalisedText {
             en: "The Ageless Necropolis",
             ja: "死の満ちる地",
             de: "Fülle des Todes",
             fr: "Nécropole intemporelle",
+        },
+        1333 => LocalisedText {
+            en: "Pilgrim's Traverse",
+            ja: "ピルグリム・トラバース",
+            de: "Pilgers Pfad",
+            fr: "Sanctuaire des pèlerins",
         },
     };
 }
