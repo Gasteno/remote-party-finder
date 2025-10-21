@@ -7957,12 +7957,132 @@ lazy_static::lazy_static! {
             high_end: false,
             content_kind: ContentKind::Trials,
         },
+        1032 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 1-10)",
+                ja: "ピルグリム・トラバース 第1～10巡礼路",
+                de: "Pilgers Pfad (Ebenen 1-10)",
+                fr: "Le Sanctuaire des pèlerins (zones 1-10)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
+        1033 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 11-20)",
+                ja: "ピルグリム・トラバース 第11～20巡礼路",
+                de: "Pilgers Pfad (Ebenen 11-20)",
+                fr: "Le Sanctuaire des pèlerins (zones 11-20)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
+        1034 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 21-30)",
+                ja: "ピルグリム・トラバース 第21～30巡礼路",
+                de: "Pilgers Pfad (Ebenen 21-30)",
+                fr: "Le Sanctuaire des pèlerins (zones 21-30)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
+        1035 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 31-40)",
+                ja: "ピルグリム・トラバース 第31～40巡礼路",
+                de: "Pilgers Pfad (Ebenen 31-40)",
+                fr: "Le Sanctuaire des pèlerins (zones 31-40)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
+        1036 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 41-50)",
+                ja: "ピルグリム・トラバース 第41～50巡礼路",
+                de: "Pilgers Pfad (Ebenen 41-50)",
+                fr: "Le Sanctuaire des pèlerins (zones 41-50)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
+        1037 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 51-60)",
+                ja: "ピルグリム・トラバース 第51～60巡礼路",
+                de: "Pilgers Pfad (Ebenen 51-60)",
+                fr: "Le Sanctuaire des pèlerins (zones 51-60)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
+        1038 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 61-70)",
+                ja: "ピルグリム・トラバース 第61～70巡礼路",
+                de: "Pilgers Pfad (Ebenen 61-70)",
+                fr: "Le Sanctuaire des pèlerins (zones 61-70)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
+        1039 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 71-80)",
+                ja: "ピルグリム・トラバース 第71～80巡礼路",
+                de: "Pilgers Pfad (Ebenen 71-80)",
+                fr: "Le Sanctuaire des pèlerins (zones 71-80)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
+        1040 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 81-90)",
+                ja: "ピルグリム・トラバース 第81～90巡礼路",
+                de: "Pilgers Pfad (Ebenen 81-90)",
+                fr: "Le Sanctuaire des pèlerins (zones 81-90)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
+        1041 => DutyInfo {
+            name: LocalisedText {
+                en: "Pilgrim's Traverse (Stones 91-100)",
+                ja: "ピルグリム・トラバース 第91～100巡礼路",
+                de: "Pilgers Pfad (Ebenen 91-100)",
+                fr: "Le Sanctuaire des pèlerins (zones 91-100)",
+            },
+            high_end: false,
+            content_kind: ContentKind::DeepDungeons,
+        },
         1042 => DutyInfo {
             name: LocalisedText {
                 en: "The Wreath of Snakes (Unreal)",
                 ja: "幻青龍征魂戦",
                 de: "Traumprüfung - Seiryu",
                 fr: "L'Îlot des Amertumes (irréel)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Trials,
+        },
+        1043 => DutyInfo {
+            name: LocalisedText {
+                en: "The Windward Wilds",
+                ja: "護竜アルシュベルド狩猟戦",
+                de: "Jagd auf Wächter-Arkveld",
+                fr: "Chasse à l'Arkveld Gardien",
+            },
+            high_end: false,
+            content_kind: ContentKind::Trials,
+        },
+        1044 => DutyInfo {
+            name: LocalisedText {
+                en: "The Windward Wilds (Extreme)",
+                ja: "極護竜アルシュベルド狩猟戦",
+                de: "Jagd auf Wächter-Arkveld (schwer)",
+                fr: "Chasse à l'Arkveld Gardien (extrême)",
             },
             high_end: true,
             content_kind: ContentKind::Trials,
@@ -8126,6 +8246,26 @@ lazy_static::lazy_static! {
             },
             high_end: true,
             content_kind: ContentKind::Trials,
+        },
+        1063 => DutyInfo {
+            name: LocalisedText {
+                en: "The Final Verse (Quantum)",
+                ja: "詩想エミネントグリーフ討滅戦",
+                de: "Eminente Trauer (variabel)",
+                fr: "Le Verset final (quantique)",
+            },
+            high_end: false,
+            content_kind: ContentKind::Other(39),
+        },
+        1065 => DutyInfo {
+            name: LocalisedText {
+                en: "The Final Verse",
+                ja: "エミネントグリーフ討滅戦",
+                de: "Eminente Trauer",
+                fr: "Le Verset final",
+            },
+            high_end: false,
+            content_kind: ContentKind::Other(39),
         },
     };
 }
