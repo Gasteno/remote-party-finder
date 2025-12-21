@@ -7854,7 +7854,7 @@ lazy_static::lazy_static! {
                 de: "Arkadion - Schwergewicht R1 (episch)",
                 fr: "Poids lourds-légers CCA - match 1 (sadique)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Raids,
         },
         1021 => DutyInfo {
@@ -7874,7 +7874,7 @@ lazy_static::lazy_static! {
                 de: "Arkadion - Schwergewicht R2 (episch)",
                 fr: "Poids lourds-légers CCA - match 2 (sadique)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Raids,
         },
         1023 => DutyInfo {
@@ -7894,7 +7894,7 @@ lazy_static::lazy_static! {
                 de: "Arkadion - Schwergewicht R3 (episch)",
                 fr: "Poids lourds-légers CCA - match 3 (sadique)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Raids,
         },
         1025 => DutyInfo {
@@ -7914,7 +7914,7 @@ lazy_static::lazy_static! {
                 de: "Arkadion - Schwergewicht R4 (episch)",
                 fr: "Poids lourds-légers CCA - match 4 (sadique)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Raids,
         },
         1027 => DutyInfo {
@@ -8057,16 +8057,6 @@ lazy_static::lazy_static! {
             high_end: false,
             content_kind: ContentKind::DeepDungeons,
         },
-        1042 => DutyInfo {
-            name: LocalisedText {
-                en: "The Wreath of Snakes (Unreal)",
-                ja: "幻青龍征魂戦",
-                de: "Traumprüfung - Seiryu",
-                fr: "L'Îlot des Amertumes (irréel)",
-            },
-            high_end: true,
-            content_kind: ContentKind::Trials,
-        },
         1043 => DutyInfo {
             name: LocalisedText {
                 en: "The Windward Wilds",
@@ -8084,8 +8074,18 @@ lazy_static::lazy_static! {
                 de: "Jagd auf Wächter-Arkveld (schwer)",
                 fr: "Chasse à l'Arkveld Gardien (extrême)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Trials,
+        },
+        1045 => DutyInfo {
+            name: LocalisedText {
+                en: "The Pâtisserie",
+                ja: "ヴァレンティオンパティスリー",
+                de: "Die Pâtisserie",
+                fr: "La Pâtisserie de la Valention",
+            },
+            high_end: false,
+            content_kind: ContentKind::Other(22),
         },
         1046 => DutyInfo {
             name: LocalisedText {
@@ -8244,7 +8244,7 @@ lazy_static::lazy_static! {
                 de: "Gok Tajaal - Das Ewige Dunkel",
                 fr: "La Nécropole intemporelle (extrême)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Trials,
         },
         1063 => DutyInfo {
@@ -8257,6 +8257,16 @@ lazy_static::lazy_static! {
             high_end: false,
             content_kind: ContentKind::Other(39),
         },
+        1064 => DutyInfo {
+            name: LocalisedText {
+                en: "Mistwake",
+                ja: "遺忘行路 ミストウェイク",
+                de: "Die Nebeltrift",
+                fr: "Le Sillage brumeux",
+            },
+            high_end: false,
+            content_kind: ContentKind::Dungeons,
+        },
         1065 => DutyInfo {
             name: LocalisedText {
                 en: "The Final Verse",
@@ -8266,6 +8276,166 @@ lazy_static::lazy_static! {
             },
             high_end: false,
             content_kind: ContentKind::Other(39),
+        },
+        1067 => DutyInfo {
+            name: LocalisedText {
+                en: "Tsukuyomi's Pain (Unreal)",
+                ja: "幻ツクヨミ討滅戦",
+                de: "Traumprüfung - Tsukuyomi",
+                fr: "Castrum Fluminis (irréel)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Trials,
+        },
+        1068 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Heavyweight M1",
+                ja: "至天の座アルカディア：ヘビー級1",
+                de: "Arkadion - Superschwergewicht R1",
+                fr: "Poids lourds CCA - match 1",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1069 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Heavyweight M1 (Savage)",
+                ja: "至天の座アルカディア零式：ヘビー級1",
+                de: "Arkadion - Superschwergewicht R1 (episch)",
+                fr: "Poids lourds CCA - match 1 (sadique)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Raids,
+        },
+        1070 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Heavyweight M2",
+                ja: "至天の座アルカディア：ヘビー級2",
+                de: "Arkadion - Superschwergewicht R2",
+                fr: "Poids lourds CCA - match 2",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1071 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Heavyweight M2 (Savage)",
+                ja: "至天の座アルカディア零式：ヘビー級2",
+                de: "Arkadion - Superschwergewicht R2 (episch)",
+                fr: "Poids lourds CCA - match 2 (sadique)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Raids,
+        },
+        1072 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Heavyweight M3",
+                ja: "至天の座アルカディア：ヘビー級3",
+                de: "Arkadion - Superschwergewicht R3",
+                fr: "Poids lourds CCA - match 3",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1073 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Heavyweight M3 (Savage)",
+                ja: "至天の座アルカディア零式：ヘビー級3",
+                de: "Arkadion - Superschwergewicht R3 (episch)",
+                fr: "Poids lourds CCA - match 3 (sadique)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Raids,
+        },
+        1074 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Heavyweight M4",
+                ja: "至天の座アルカディア：ヘビー級4",
+                de: "Arkadion - Superschwergewicht R4",
+                fr: "Poids lourds CCA - match 4",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1075 => DutyInfo {
+            name: LocalisedText {
+                en: "AAC Heavyweight M4 (Savage)",
+                ja: "至天の座アルカディア零式：ヘビー級4",
+                de: "Arkadion - Superschwergewicht R4 (episch)",
+                fr: "Poids lourds CCA - match 4 (sadique)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Raids,
+        },
+        1076 => DutyInfo {
+            name: LocalisedText {
+                en: "Hell on Rails",
+                ja: "グラシャラボラス討滅戦",
+                de: "Zel Tajaal - Doomtrain",
+                fr: "Le Convoi maléfique",
+            },
+            high_end: false,
+            content_kind: ContentKind::Trials,
+        },
+        1077 => DutyInfo {
+            name: LocalisedText {
+                en: "Hell on Rails (Extreme)",
+                ja: "極グラシャラボラス討滅戦",
+                de: "Gok Tajaal - Doomtrain",
+                fr: "Le Convoi maléfique (extrême)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Trials,
+        },
+        1080 => DutyInfo {
+            name: LocalisedText {
+                en: "Worqor Chirteh (Triumph)",
+                ja: "ウォーコー・チーテ (演習戦)",
+                de: "Worqor Chirteh (Triumph)",
+                fr: "Worqor Chirteh (manœuvre)",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1081 => DutyInfo {
+            name: LocalisedText {
+                en: "Air Force One",
+                ja: "出撃！ エアフォースパイロット",
+                de: "Luftwaffe, Feuer frei!",
+                fr: "As de l'air",
+            },
+            high_end: false,
+            content_kind: ContentKind::GoldSaucer,
+        },
+        1082 => DutyInfo {
+            name: LocalisedText {
+                en: "Air Force One",
+                ja: "出撃！ エアフォースパイロット",
+                de: "Luftwaffe, Feuer frei!",
+                fr: "As de l'air",
+            },
+            high_end: false,
+            content_kind: ContentKind::GoldSaucer,
+        },
+        1083 => DutyInfo {
+            name: LocalisedText {
+                en: "Air Force One",
+                ja: "出撃！ エアフォースパイロット",
+                de: "Luftwaffe, Feuer frei!",
+                fr: "As de l'air",
+            },
+            high_end: false,
+            content_kind: ContentKind::GoldSaucer,
+        },
+        1085 => DutyInfo {
+            name: LocalisedText {
+                en: "Where We Call Home",
+                ja: "隣人と手を取り合いて",
+                de: "Die Hüterin Trenos",
+                fr: "Solidarité entre voisins",
+            },
+            high_end: false,
+            content_kind: ContentKind::QuestBattles,
         },
     };
 }
