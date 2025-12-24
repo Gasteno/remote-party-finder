@@ -503,6 +503,10 @@ internal class Program
         var parser = AutoTranslate.Parser();
         foreach (var row in this.Data[Language.English].GetExcelSheet<Completion>()!)
         {
+            // Skip group 61 entries
+            if (row.Group == 61)
+                continue;
+            
             var lookup = row.LookupTable.ToString().Replace("<num(", "").Replace(")>", ""); // 🙂
             
             if (lookup is not ("" or "@"))
@@ -591,10 +595,11 @@ internal class Program
                             {
                                 try
                                 {
-                                    var text = rawRow.ReadStringColumn(col).ExtractText();
+                                    var seString = rawRow.ReadStringColumn(col);
+                                    var text = seString.ExtractText();
                                     if (text.Length > 0)
                                     {
-                                        var replace = text.Replace(" ", "").Replace("­", "");
+                                        var replace = text.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(" ", "").Replace("­", "");
                                         builder.Append($"            {Languages[lang]}: \"{replace}\",\n");
                                         lines += 1;
                                         break;
