@@ -583,17 +583,28 @@ internal class Program
                             var sheet = sheets[lang];
 
                             var idx = i;
-                            foreach (var text in from col in columns
-                                     let rawRow = sheet.GetRow(idx)
-                                     select rawRow.ReadStringColumn(col).ExtractText()
-                                     into text
-                                     where text.Length > 0
-                                     select text)
+                            if (!sheet.HasRow(idx))
+                                continue;
+
+                            var rawRow = sheet.GetRow(idx);
+                            foreach (var col in columns)
                             {
-                                var replace = text.Replace(" ", "").Replace("­", "");;
-                                builder.Append($"            {Languages[lang]}: \"{replace}\",\n");
-                                lines += 1;
-                                break;
+                                try
+                                {
+                                    var text = rawRow.ReadStringColumn(col).ExtractText();
+                                    if (text.Length > 0)
+                                    {
+                                        var replace = text.Replace(" ", "").Replace("­", "");
+                                        builder.Append($"            {Languages[lang]}: \"{replace}\",\n");
+                                        lines += 1;
+                                        break;
+                                    }
+                                }
+                                catch (ArgumentOutOfRangeException)
+                                {
+                                    // Column index out of range for this row, skip
+                                    continue;
+                                }
                             }
                         }
 
