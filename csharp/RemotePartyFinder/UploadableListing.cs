@@ -35,7 +35,7 @@ internal class UploadableListing {
     public List<byte> JobsPresent { get; }
 
     internal UploadableListing(IPartyFinderListing listing) {
-        this.Id = listing.Id;
+        this.Id = (uint)listing.Id;
         this.ContentIdLower = (uint)listing.ContentId;
         this.Name = listing.Name.Encode();
         this.Description = listing.Description.Encode();
@@ -50,7 +50,7 @@ internal class UploadableListing {
         this.MinItemLevel = listing.MinimumItemLevel;
         this.NumParties = listing.Parties;
         this.SlotsAvailable = listing.SlotsAvailable;
-        this.LastServerRestart = listing.LastPatchHotfixTimestamp;
+        this.LastServerRestart = (uint)listing.LastPatchHotfixTimestamp;
         this.Objective = listing.Objective;
         this.Conditions = listing.Conditions;
         this.DutyFinderSettings = listing.DutyFinderSettings;

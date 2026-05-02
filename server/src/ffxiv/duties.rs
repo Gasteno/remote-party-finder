@@ -7767,6 +7767,16 @@ lazy_static::lazy_static! {
             high_end: true,
             content_kind: ContentKind::ChaoticAllianceRaid,
         },
+        1011 => DutyInfo {
+            name: LocalisedText {
+                en: "The Clyteum",
+                ja: "妖異侵攻 クルティウス魔導工廠",
+                de: "Das Klyteum",
+                fr: "Le Clyteum",
+            },
+            high_end: false,
+            content_kind: ContentKind::Dungeons,
+        },
         1012 => DutyInfo {
             name: LocalisedText {
                 en: "React to Attack Markers",
@@ -8277,15 +8287,15 @@ lazy_static::lazy_static! {
             high_end: false,
             content_kind: ContentKind::Other(39),
         },
-        1067 => DutyInfo {
+        1066 => DutyInfo {
             name: LocalisedText {
-                en: "Tsukuyomi's Pain (Unreal)",
-                ja: "幻ツクヨミ討滅戦",
-                de: "Traumprüfung - Tsukuyomi",
-                fr: "Castrum Fluminis (irréel)",
+                en: "The Merchant's Tale",
+                ja: "ヴァリアントダンジョン 商客物語",
+                de: "Des Händlers Liebesmüh",
+                fr: "Contes du Camelot - Donjon à embranchements",
             },
-            high_end: true,
-            content_kind: ContentKind::Trials,
+            high_end: false,
+            content_kind: ContentKind::VCDungeonFinder,
         },
         1068 => DutyInfo {
             name: LocalisedText {
@@ -8384,8 +8394,18 @@ lazy_static::lazy_static! {
                 de: "Gok Tajaal - Doomtrain",
                 fr: "Le Convoi maléfique (extrême)",
             },
-            high_end: true,
+            high_end: false,
             content_kind: ContentKind::Trials,
+        },
+        1079 => DutyInfo {
+            name: LocalisedText {
+                en: "Another Merchant's Tale",
+                ja: "アナザーダンジョン 異聞商客物語",
+                de: "Des Händlers kuriose Liebesmüh",
+                fr: "Contes du Camelot annexes - Donjon alternatif",
+            },
+            high_end: false,
+            content_kind: ContentKind::VCDungeonFinder,
         },
         1080 => DutyInfo {
             name: LocalisedText {
@@ -8427,6 +8447,16 @@ lazy_static::lazy_static! {
             high_end: false,
             content_kind: ContentKind::GoldSaucer,
         },
+        1084 => DutyInfo {
+            name: LocalisedText {
+                en: "The Merchant's Tale (Advanced)",
+                ja: "アドバンスド・ヴァリアントダンジョン 商客物語",
+                de: "Des Händlers Liebesmüh (fortgeschritten)",
+                fr: "Contes du Camelot - Donjon à embranchements (avancé)",
+            },
+            high_end: false,
+            content_kind: ContentKind::VCDungeonFinder,
+        },
         1085 => DutyInfo {
             name: LocalisedText {
                 en: "Where We Call Home",
@@ -8436,6 +8466,196 @@ lazy_static::lazy_static! {
             },
             high_end: false,
             content_kind: ContentKind::QuestBattles,
+        },
+        1098 => DutyInfo {
+            name: LocalisedText {
+                en: "Ocean Fishing",
+                ja: "オーシャンフィッシング",
+                de: "Auf großer Fahrt",
+                fr: "Pêche en mer",
+            },
+            high_end: false,
+            content_kind: ContentKind::DisciplesoftheLand,
+        },
+        1099 => DutyInfo {
+            name: LocalisedText {
+                en: "Ocean Fishing",
+                ja: "オーシャンフィッシング",
+                de: "Auf großer Fahrt",
+                fr: "Pêche en mer",
+            },
+            high_end: false,
+            content_kind: ContentKind::DisciplesoftheLand,
+        },
+        1100 => DutyInfo {
+            name: LocalisedText {
+                en: "Ocean Fishing",
+                ja: "オーシャンフィッシング",
+                de: "Auf großer Fahrt",
+                fr: "Pêche en mer",
+            },
+            high_end: false,
+            content_kind: ContentKind::DisciplesoftheLand,
+        },
+        1102 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1103 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1104 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1105 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1106 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1107 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1108 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1109 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1110 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1111 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1112 => DutyInfo {
+            name: LocalisedText {
+                en: "Archeia Harmonias",
+                ja: "ハルモニア戦争図書館",
+                de: "Archeia Harmonias",
+                fr: "La Bibliothèque Harmonia",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1113 => DutyInfo {
+            name: LocalisedText {
+                en: "Crystalline Conflict (Custom Match - Archeia Harmonias)",
+                ja: "クリスタルコンフリクト(ハルモニア戦争図書館：カスタムマッチ)",
+                de: "Crystalline Conflict: Archeia Harmonias (Schaukampf)",
+                fr: "Crys. Conflict (partie perso. - La Bibliothèque Harmonia)",
+            },
+            high_end: false,
+            content_kind: ContentKind::PvP,
+        },
+        1115 => DutyInfo {
+            name: LocalisedText {
+                en: "The Unmaking",
+                ja: "エヌオー討滅戦",
+                de: "Zel Tajaal - Enuo",
+                fr: "L'Anticréation",
+            },
+            high_end: false,
+            content_kind: ContentKind::Trials,
+        },
+        1116 => DutyInfo {
+            name: LocalisedText {
+                en: "The Unmaking (Extreme)",
+                ja: "極エヌオー討滅戦",
+                de: "Gok Tajaal - Enuo",
+                fr: "L'Anticréation (extrême)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Trials,
+        },
+        1117 => DutyInfo {
+            name: LocalisedText {
+                en: "Windurst: The Third Walk",
+                ja: "ウィンダス：ザ・サードウォーク",
+                de: "Windurst: Die dritte Etappe",
+                fr: "Windurst - La troisième perambulation",
+            },
+            high_end: false,
+            content_kind: ContentKind::Raids,
+        },
+        1118 => DutyInfo {
+            name: LocalisedText {
+                en: "Shinryu's Domain (Unreal)",
+                ja: "幻神龍討滅戦",
+                de: "Traumprüfung - Heldenlied von Shinryu",
+                fr: "Le domaine de Shinryu (irréel)",
+            },
+            high_end: true,
+            content_kind: ContentKind::Trials,
         },
     };
 }

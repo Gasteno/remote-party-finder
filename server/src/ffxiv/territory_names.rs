@@ -1575,12 +1575,6 @@ lazy_static::lazy_static! {
             de: "Anwesen der Fortemps",
             fr: "Manoir des Fortemps",
         },
-        434 => LocalisedText {
-            en: "Dusk Vigil",
-            ja: "ダスクヴィジル",
-            de: "Abendrot-Wacht",
-            fr: "Vigile du Crépuscule",
-        },
         436 => LocalisedText {
             en: "The Limitless Blue",
             ja: "群青空域",
@@ -2594,12 +2588,6 @@ lazy_static::lazy_static! {
             ja: "ヤンサ",
             de: "Yanxia",
             fr: "Yanxia",
-        },
-        616 => LocalisedText {
-            en: "Shisui of the Violet Tides",
-            ja: "紫水宮",
-            de: "Shisui-Palast",
-            fr: "Palais aux Marées violettes",
         },
         617 => LocalisedText {
             en: "Sohm Al",
@@ -6447,6 +6435,12 @@ lazy_static::lazy_static! {
             de: "Sternenlicht-Stände",
             fr: "Marché des étoiles",
         },
+        1310 => LocalisedText {
+            en: "Oizys",
+            ja: "惑星オイジュス",
+            de: "Oizys",
+            fr: "Oizys",
+        },
         1311 => LocalisedText {
             en: "Pilgrim's Traverse",
             ja: "ピルグリム・トラバース",
@@ -6471,11 +6465,23 @@ lazy_static::lazy_static! {
             de: "Nebeltrift",
             fr: "Sillage brumeux",
         },
-        1318 => LocalisedText {
-            en: "Castrum Fluminis",
-            ja: "カストルム・フルーミニス",
-            de: "Castrum Fluminis",
-            fr: "Castrum Fluminis",
+        1315 => LocalisedText {
+            en: "The Merchant's Tale",
+            ja: "商客物語",
+            de: "Des Händlers Liebesmüh",
+            fr: "Contes du Camelot",
+        },
+        1316 => LocalisedText {
+            en: "The Merchant's Tale",
+            ja: "商客物語",
+            de: "Des Händlers Liebesmüh",
+            fr: "Contes du Camelot",
+        },
+        1317 => LocalisedText {
+            en: "Another Merchant's Tale",
+            ja: "異聞商客物語",
+            de: "Des Händlers kuriose Liebesmüh",
+            fr: "Contes du Camelot annexes",
         },
         1320 => LocalisedText {
             en: "Ring Noir",
@@ -6570,8 +6576,14 @@ lazy_static::lazy_static! {
         1336 => LocalisedText {
             en: "Lilyswim",
             ja: "睡蓮湖近郊",
-            de: "睡蓮湖近郊",
+            de: "Lilienteich",
             fr: "Alentours du lac aux Nénuphars",
+        },
+        1337 => LocalisedText {
+            en: "The Maiden's Home",
+            ja: "美しい娘の家",
+            de: "Gemächer der jungen Angebeteten",
+            fr: "Appartements de la belle demoiselle",
         },
         1338 => LocalisedText {
             en: "Bentini Depot",
@@ -6584,6 +6596,84 @@ lazy_static::lazy_static! {
             ja: "ジム・トライテール",
             de: "Tatzentrio-Training",
             fr: "Trois Queues",
+        },
+        1345 => LocalisedText {
+            en: "The Clyteum",
+            ja: "クルティウス魔導工廠",
+            de: "Klyteum",
+            fr: "Le Clyteum",
+        },
+        1357 => LocalisedText {
+            en: "Archeia Harmonias",
+            ja: "ハルモニア戦争図書館",
+            de: "Archeia Harmonias",
+            fr: "La Bibliothèque Harmonia",
+        },
+        1358 => LocalisedText {
+            en: "Archeia Harmonias",
+            ja: "ハルモニア戦争図書館",
+            de: "Archeia Harmonias",
+            fr: "La Bibliothèque Harmonia",
+        },
+        1361 => LocalisedText {
+            en: "The Unmaking",
+            ja: "無の領域",
+            de: "Nichts-Territorium",
+            fr: "Domaine du néant",
+        },
+        1362 => LocalisedText {
+            en: "The Unmaking",
+            ja: "無の領域",
+            de: "Nichts-Territorium",
+            fr: "Domaine du néant",
+        },
+        1366 => LocalisedText {
+            en: "Dusk Vigil",
+            ja: "ダスクヴィジル",
+            de: "Abendrot-Wacht",
+            fr: "Vigile du Crépuscule",
+        },
+        1367 => LocalisedText {
+            en: "Shisui of the Violet Tides",
+            ja: "紫水宮",
+            de: "Shisui-Palast",
+            fr: "Palais aux Marées violettes",
+        },
+        1368 => LocalisedText {
+            en: "Windurst: The Third Walk",
+            ja: "ウィンダス：ザ・サードウォーク",
+            de: "Windurst: Die dritte Etappe",
+            fr: "Windurst - La troisième perambulation",
+        },
+        1369 => LocalisedText {
+            en: "The Phantoms' Feast",
+            ja: "ホーンテッドフィースト",
+            de: "Lustiges Bankett",
+            fr: "Banquet cauchemardesque",
+        },
+        1370 => LocalisedText {
+            en: "The Phantoms' Feast",
+            ja: "ホーンテッドフィースト",
+            de: "Lustiges Bankett",
+            fr: "Banquet cauchemardesque",
+        },
+        1372 => LocalisedText {
+            en: "Transparency",
+            ja: "結晶化空間",
+            de: "Raum der Transparenz",
+            fr: "Transparence",
+        },
+        1373 => LocalisedText {
+            en: "The Unmaking",
+            ja: "無の領域",
+            de: "Nichts-Territorium",
+            fr: "Domaine du néant",
+        },
+        1384 => LocalisedText {
+            en: "Starlight Stalls",
+            ja: "星芒マーケット",
+            de: "Sternenlicht-Stände",
+            fr: "Marché des étoiles",
         },
     };
 }
