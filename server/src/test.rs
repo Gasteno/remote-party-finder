@@ -113,7 +113,7 @@ fn deserialise_listing() {
 #[test]
 fn serialise_listing() {
     assert_eq!(
-        serde_json::to_string_pretty(&*EXPECTED).unwrap(),
+        serde_json::to_string_pretty(&*EXPECTED).unwrap().trim(),
         LISTING.trim(),
     );
 }
