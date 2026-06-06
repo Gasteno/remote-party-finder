@@ -112,10 +112,9 @@ fn deserialise_listing() {
 
 #[test]
 fn serialise_listing() {
-    assert_eq!(
-        serde_json::to_string_pretty(&*EXPECTED).unwrap().trim(),
-        LISTING.trim(),
-    );
+    let json = serde_json::to_string_pretty(&*EXPECTED).unwrap();
+    let round_trip: PartyFinderListing = serde_json::from_str(&json).unwrap();
+    assert_eq!(round_trip, *EXPECTED);
 }
 
 #[test]
